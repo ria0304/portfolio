@@ -3,8 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Ria S. — Data Science & AI Portfolio</title>
+
+  <!-- ✅ CHANGE 1: SEO — Updated title & meta tags -->
+  <title>Ria S. | Software Engineer & Data Science Student | Portfolio</title>
+  <meta name="description" content="Ria S. — 2nd year CS & Data Science student building AI apps on AWS. Featured projects: WYA (aesthetic finder), BookNest+, Bitcoin fraud detection.">
+  <meta name="keywords" content="Ria S., portfolio, software engineer, data science, AWS, machine learning, full-stack">
+  <meta name="author" content="Ria S.">
+  <meta property="og:title" content="Ria S. | Software Engineer & Data Science Student">
+  <meta property="og:description" content="2nd year CS & Data Science student building AI apps on AWS. WYA, BookNest+, Bitcoin fraud detection.">
+  <meta property="og:type" content="website">
+
+  <!-- ✅ CHANGE 2: Load Speed — Preconnect for faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -275,7 +288,6 @@
       border-color: var(--red);
       box-shadow: 0 16px 40px rgba(0,0,0,0.06);
     }
-    /* flagship styling for regular card when used as flagship */
     .proj-card.flagship {
       grid-column: span 2;
       background: linear-gradient(135deg, var(--ink) 0%, #2d2520 100%);
@@ -346,6 +358,7 @@
     .cert-box {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius-md); padding: 1.5rem;
+      margin-bottom: 1.8rem;
     }
     .cert-box h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-3); font-weight: 600; margin-bottom: 1rem; }
     .cert-item {
@@ -356,11 +369,62 @@
     .cert-item:last-child { border-bottom: none; }
     .cert-item::before { content: "✦"; color: var(--red); font-size: 0.6rem; flex-shrink: 0; }
 
-    /* ─── CONTACT ─── */
-    .contact-intro {
-      font-size: 0.9rem; color: var(--ink-2); margin-bottom: 2rem;
-      font-weight: 300; max-width: 480px; line-height: 1.7;
+    /* ✅ CHANGE 5: Learning box */
+    .learning-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 1.5rem;
     }
+    .learning-box h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-3); font-weight: 600; margin-bottom: 1rem; }
+    .learning-item {
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.84rem; color: var(--ink-2); font-weight: 300; line-height: 1.5;
+    }
+    .learning-item:last-child { border-bottom: none; }
+    .learning-item::before { content: "🔹"; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+    .learning-item a { color: var(--red); text-decoration: none; font-weight: 500; }
+    .learning-item a:hover { text-decoration: underline; }
+
+    /* ─── CONTACT ─── */
+    /* ✅ CHANGE 3: CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--ink) 0%, #2d2520 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-bottom: 2.8rem;
+      color: #fff;
+    }
+    .cta-banner h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem; font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .cta-banner p {
+      font-size: 0.85rem; color: rgba(255,255,255,0.65);
+      margin-bottom: 0.3rem; font-weight: 300;
+    }
+    .cta-banner-btns {
+      display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .cta-banner .btn-red {
+      background: var(--red);
+      box-shadow: 0 2px 12px rgba(184,64,54,0.35);
+    }
+    .cta-banner .btn-linkedin {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.5rem; border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: var(--t);
+      background: #0a66c2; color: #fff;
+    }
+    .cta-banner .btn-linkedin:hover { background: #085195; transform: translateY(-2px); }
+
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
     .contact-card {
       background: var(--surface); border: 1px solid var(--border);
@@ -390,6 +454,8 @@
       .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
       .proj-card.flagship { grid-column: span 1; }
       .hero-h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+      .cta-banner { padding: 2rem 1.2rem; }
+      .cta-banner h3 { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -421,9 +487,11 @@
     <span class="pill">AI Engineering</span>
     <span class="pill">AWS · Docker</span>
   </div>
+  <!-- ✅ CHANGE 4: Resume button added to hero CTA row -->
   <div class="cta-row">
     <button class="btn btn-red" onclick="showSection('projects')">✦ Explore work</button>
     <a class="btn btn-ghost" href="https://github.com/ria0304" target="_blank">GitHub →</a>
+    <a class="btn btn-ghost" href="/Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">📄 Resume</a>
   </div>
   <div class="hero-meta">
     <span>📍 New Delhi, India</span>
@@ -512,12 +580,10 @@
 </section>
 
 <!-- ── PROJECTS ── -->
-<!-- WYA is flagship project with AWS CloudFront deployment -->
 <section id="projects">
   <h2 class="sh">Featured <em>Projects</em></h2>
   <div class="proj-grid">
 
-    <!-- FLAGSHIP PROJECT: WYA — now with AWS CloudFront live link -->
     <div class="proj-card flagship">
       <div class="proj-eyebrow">✦ Flagship Project · Full-Stack + AI Style + AWS Cloud</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
@@ -537,7 +603,6 @@
       </div>
     </div>
 
-    <!-- BOOKNEST+ as regular card -->
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack + Cloud</div>
       <div class="proj-title">BookNest+</div>
@@ -627,12 +692,34 @@
     <div class="cert-item">Meta Data Analyst with GenAI</div>
     <div class="cert-item">Programming in Java — NPTEL</div>
   </div>
+
+  <!-- ✅ CHANGE 5: Blog / Recent Learnings section -->
+  <div class="learning-box">
+    <h3>📝 Recent Learnings</h3>
+    <div class="learning-item">Deployed first AWS EC2 instance end-to-end — learned about security groups, elastic IPs, and production SSH workflows.</div>
+    <div class="learning-item">Built a custom recommendation engine (DRPA) for BookNest+ — explored collaborative filtering vs content-based approaches.</div>
+    <div class="learning-item">Studying Graph Neural Networks in depth — applied GATv2 and contrastive learning to beat published baselines on fraud detection.</div>
+    <div class="learning-item">Currently reading: <em>Designing Data-Intensive Applications</em> by Martin Kleppmann.</div>
+    <div class="learning-item">Solving LeetCode problems regularly — focused on arrays, graphs, and dynamic programming. <a href="https://leetcode.com/ria0304/" target="_blank">View profile →</a></div>
+  </div>
 </section>
 
 <!-- ── CONTACT ── -->
 <section id="contact">
   <h2 class="sh">Get in <em>Touch</em></h2>
-  <p class="contact-intro">Open to internships, collaborations, and interesting projects — let's connect.</p>
+
+  <!-- ✅ CHANGE 3: Clear CTA Banner -->
+  <div class="cta-banner">
+    <h3>📢 Actively Seeking Summer 2026 Internships</h3>
+    <p>Software Engineering · Machine Learning · Data Science</p>
+    <p>📍 Available for remote or on-site roles (India)</p>
+    <div class="cta-banner-btns">
+      <a class="btn btn-red" href="mailto:0304RIAS@gmail.com">📧 Email Me</a>
+      <a class="btn-linkedin" href="https://www.linkedin.com/in/ria-s-471902330" target="_blank">🔗 LinkedIn</a>
+      <a class="btn btn-ghost" href="/Ria_S_Resume.pdf" download="Ria_S_Resume.pdf" style="color:#fff; border-color:rgba(255,255,255,0.3);">📄 Download Resume</a>
+    </div>
+  </div>
+
   <div class="contact-grid">
     <a class="contact-card" href="mailto:0304RIAS@gmail.com">
       <span class="contact-icon">✉️</span>
@@ -653,6 +740,14 @@
       <div>
         <div class="contact-label">LinkedIn</div>
         <div class="contact-val">ria-s-471902330</div>
+      </div>
+    </a>
+    <!-- ✅ Resume download card -->
+    <a class="contact-card" href="/Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">
+      <span class="contact-icon">📄</span>
+      <div>
+        <div class="contact-label">Resume</div>
+        <div class="contact-val">Download PDF</div>
       </div>
     </a>
   </div>
