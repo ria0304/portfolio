@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <!-- ✅ CHANGE 1: SEO — Updated title & meta tags -->
+  <!-- ✅ SEO — Updated title & meta tags -->
   <title>Ria S. | Software Engineer & Data Science Student | Portfolio</title>
   <meta name="description" content="Ria S. — 2nd year CS & Data Science student building AI apps on AWS. Featured projects: WYA (aesthetic finder), BookNest+, Bitcoin fraud detection.">
   <meta name="keywords" content="Ria S., portfolio, software engineer, data science, AWS, machine learning, full-stack">
@@ -13,7 +13,7 @@
   <meta property="og:description" content="2nd year CS & Data Science student building AI apps on AWS. WYA, BookNest+, Bitcoin fraud detection.">
   <meta property="og:type" content="website">
 
-  <!-- ✅ CHANGE 2: Load Speed — Preconnect for faster font loading -->
+  <!-- ✅ Load Speed — Preconnect for faster font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -369,7 +369,6 @@
     .cert-item:last-child { border-bottom: none; }
     .cert-item::before { content: "✦"; color: var(--red); font-size: 0.6rem; flex-shrink: 0; }
 
-    /* ✅ CHANGE 5: Learning box */
     .learning-box {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius-md); padding: 1.5rem;
@@ -386,7 +385,6 @@
     .learning-item a:hover { text-decoration: underline; }
 
     /* ─── CONTACT ─── */
-    /* ✅ CHANGE 3: CTA Banner */
     .cta-banner {
       background: linear-gradient(135deg, var(--ink) 0%, #2d2520 100%);
       border-radius: var(--radius-lg);
@@ -424,6 +422,16 @@
       background: #0a66c2; color: #fff;
     }
     .cta-banner .btn-linkedin:hover { background: #085195; transform: translateY(-2px); }
+    .cta-banner .btn-resume {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.5rem; border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: var(--t);
+      background: #16a34a; color: #fff; border: none;
+    }
+    .cta-banner .btn-resume:hover { background: #15803d; transform: translateY(-2px); }
 
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
     .contact-card {
@@ -487,11 +495,11 @@
     <span class="pill">AI Engineering</span>
     <span class="pill">AWS · Docker</span>
   </div>
-  <!-- ✅ CHANGE 4: Resume button added to hero CTA row -->
   <div class="cta-row">
     <button class="btn btn-red" onclick="showSection('projects')">✦ Explore work</button>
     <a class="btn btn-ghost" href="https://github.com/ria0304" target="_blank">GitHub →</a>
-    <a class="btn btn-ghost" href="/Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">📄 Resume</a>
+    <!-- ✅ FIXED: Removed the leading slash -->
+    <a class="btn btn-ghost" href="Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">📄 Resume</a>
   </div>
   <div class="hero-meta">
     <span>📍 New Delhi, India</span>
@@ -693,7 +701,6 @@
     <div class="cert-item">Programming in Java — NPTEL</div>
   </div>
 
-  <!-- ✅ CHANGE 5: Blog / Recent Learnings section -->
   <div class="learning-box">
     <h3>📝 Recent Learnings</h3>
     <div class="learning-item">Deployed first AWS EC2 instance end-to-end — learned about security groups, elastic IPs, and production SSH workflows.</div>
@@ -708,7 +715,6 @@
 <section id="contact">
   <h2 class="sh">Get in <em>Touch</em></h2>
 
-  <!-- ✅ CHANGE 3: Clear CTA Banner -->
   <div class="cta-banner">
     <h3>📢 Actively Seeking Summer 2026 Internships</h3>
     <p>Software Engineering · Machine Learning · Data Science</p>
@@ -716,7 +722,8 @@
     <div class="cta-banner-btns">
       <a class="btn btn-red" href="mailto:0304RIAS@gmail.com">📧 Email Me</a>
       <a class="btn-linkedin" href="https://www.linkedin.com/in/ria-s-471902330" target="_blank">🔗 LinkedIn</a>
-      <a class="btn btn-ghost" href="/Ria_S_Resume.pdf" download="Ria_S_Resume.pdf" style="color:#fff; border-color:rgba(255,255,255,0.3);">📄 Download Resume</a>
+      <!-- ✅ FIXED: Removed the leading slash and gave it a unique green style -->
+      <a class="btn-resume" href="Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">📄 Download Resume</a>
     </div>
   </div>
 
@@ -742,8 +749,8 @@
         <div class="contact-val">ria-s-471902330</div>
       </div>
     </a>
-    <!-- ✅ Resume download card -->
-    <a class="contact-card" href="/Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">
+    <!-- ✅ FIXED: Removed the leading slash -->
+    <a class="contact-card" href="Ria_S_Resume.pdf" download="Ria_S_Resume.pdf">
       <span class="contact-icon">📄</span>
       <div>
         <div class="contact-label">Resume</div>
