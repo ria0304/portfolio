@@ -809,17 +809,9 @@
     const btn = document.getElementById('nav-' + id);
     if (sec) { sec.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     if (btn) btn.classList.add('active');
-    history.pushState(null, null, '#' + id);
   }
 
-  function init() {
-    const hash = window.location.hash.substring(1);
-    const valid = ['hero','about','experience','projects','education','contact'];
-    showSection(valid.includes(hash) ? hash : 'hero');
-  }
-
-  window.addEventListener('load', init);
-  window.addEventListener('hashchange', init);
+  window.addEventListener('load', () => showSection('hero'));
 </script>
 </body>
 </html>
