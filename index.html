@@ -299,6 +299,20 @@
     .proj-card.flagship .live-badge { background: #26a269; color: #fff; border: none; }
     .proj-card.flagship .proj-link { color: #f9c56a; }
 
+    /* ─── FLOWWRITE CARD (wide, dark teal) ─── */
+    .proj-card.flowwrite {
+      grid-column: span 2;
+      background: linear-gradient(135deg, #0f2027 0%, #1a3a3a 60%, #0d2b2b 100%);
+      color: #fff; border-color: transparent;
+    }
+    .proj-card.flowwrite .proj-eyebrow { color: #5dd6c0; }
+    .proj-card.flowwrite .proj-title { color: #fff; }
+    .proj-card.flowwrite .proj-desc { color: rgba(255,255,255,0.65); }
+    .proj-card.flowwrite .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+    .proj-card.flowwrite .proj-tag.nlp { background: rgba(93,214,192,0.15); border-color: rgba(93,214,192,0.3); color: #5dd6c0; }
+    .proj-card.flowwrite .live-badge { background: #26a269; color: #fff; border: none; }
+    .proj-card.flowwrite .proj-link { color: #5dd6c0; }
+
     .proj-eyebrow {
       font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--red); font-weight: 600; margin-bottom: 0.5rem;
@@ -461,6 +475,7 @@
       section { padding: 2.5rem 1.2rem 4rem; }
       .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
       .proj-card.flagship { grid-column: span 1; }
+      .proj-card.flowwrite { grid-column: span 1; }
       .hero-h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
       .cta-banner { padding: 2rem 1.2rem; }
       .cta-banner h3 { font-size: 1.3rem; }
@@ -591,6 +606,7 @@
   <h2 class="sh">Featured <em>Projects</em></h2>
   <div class="proj-grid">
 
+    <!-- WYA — FLAGSHIP -->
     <div class="proj-card flagship">
       <div class="proj-eyebrow">✦ Flagship Project · Full-Stack + AI Style + AWS Cloud</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
@@ -610,6 +626,28 @@
       </div>
     </div>
 
+    <!-- FLOWWRITE -->
+    <div class="proj-card flowwrite">
+      <div class="proj-eyebrow">✦ NLP Pipeline · AI Text Humanizer</div>
+      <div class="proj-title">FlowWrite — AI Text Humanizer</div>
+      <div class="proj-desc">A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing. Achieves exceptionally low AI-detection scores across 8 major detectors including Turnitin, GPTZero, and Copyleaks. The pipeline combines spaCy chunking, SBERT semantic merging, local LLM rewriting, and a custom Human Likeness Score (HLS) to select the best candidate output across burstiness, readability, coherence, and semantic similarity dimensions.</div>
+      <div class="proj-tags">
+        <span class="proj-tag nlp">NLP Pipeline</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">spaCy</span>
+        <span class="proj-tag">SBERT</span>
+        <span class="proj-tag">Ollama · llama3.2</span>
+        <span class="proj-tag cloud">AWS S3 + CloudFront</span>
+      </div>
+      <div class="proj-footer">
+        <span class="live-badge">Frontend Live</span>
+        <a class="proj-link" href="https://d37s95cs5nvhcl.cloudfront.net" target="_blank">Open App →</a>
+        <a class="proj-link" href="https://github.com/ria0304/flowWrite--ai-text-humanizer" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- BOOKNEST -->
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack + Cloud</div>
       <div class="proj-title">BookNest+</div>
@@ -630,6 +668,7 @@
       </div>
     </div>
 
+    <!-- BITCOIN FRAUD -->
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
@@ -645,6 +684,7 @@
       </div>
     </div>
 
+    <!-- SMART RESALE -->
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning</div>
       <div class="proj-title">Smart Resale</div>
@@ -659,6 +699,7 @@
       </div>
     </div>
 
+    <!-- CALORIES -->
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · Health</div>
       <div class="proj-title">Calories Burnt Prediction</div>
@@ -705,8 +746,6 @@
     <div class="learning-item">Deployed first AWS EC2 instance end-to-end — learned about security groups, elastic IPs, and production SSH workflows.</div>
     <div class="learning-item">Built a custom recommendation engine (DRPA) for BookNest+ — explored collaborative filtering vs content-based approaches.</div>
     <div class="learning-item">Studying Graph Neural Networks in depth — applied GATv2 and contrastive learning to beat published baselines on fraud detection.</div>
-    <!-- ✅ REMOVED: The line about "Designing Data-Intensive Applications" has been deleted as you requested. -->
-    <!-- ✅ FIXED: Corrected the LeetCode profile link -->
     <div class="learning-item">Solving LeetCode problems regularly — focused on arrays, graphs, and dynamic programming. <a href="https://leetcode.com/u/RIA_0304/" target="_blank">View profile →</a></div>
   </div>
 </section>
@@ -759,7 +798,7 @@
 </section>
 
 <footer>
-  <p>Ria S. — Data Science & AI Portfolio · Built with curiosity</p>
+  <p>Ria S. — Data Science & AI Portfolio</p>
 </footer>
 
 <script>
