@@ -51,7 +51,6 @@
       min-height: 100vh;
     }
 
-    /* ─── NAV ─── */
     .nav-wrap {
       position: sticky; top: 0; z-index: 200;
       background: rgba(255, 255, 255, 0.45);
@@ -73,9 +72,7 @@
       cursor: pointer;
     }
     .logo span { color: var(--red); }
-    .nav-links {
-      display: flex; gap: 0.2rem;
-    }
+    .nav-links { display: flex; gap: 0.2rem; }
     .nav-links button {
       background: none; border: none; cursor: pointer;
       font-family: 'DM Sans', sans-serif;
@@ -92,7 +89,6 @@
       background: rgba(184,64,54,0.1);
     }
 
-    /* ─── SECTIONS ─── */
     section {
       display: none;
       max-width: 1160px; margin: 0 auto;
@@ -106,7 +102,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── SECTION HEADER ─── */
     .sh {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2rem, 4vw, 2.8rem);
@@ -117,7 +112,6 @@
     }
     .sh em { color: var(--red); font-style: italic; }
 
-    /* ─── GLASS CARD BASE ─── */
     .glass {
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(16px);
@@ -126,7 +120,6 @@
       box-shadow: 0 2px 16px rgba(0,0,0,0.04);
     }
 
-    /* ─── HERO ─── */
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: rgba(201,149,42,0.12);
@@ -166,10 +159,7 @@
       margin-bottom: 2rem; font-weight: 300;
     }
 
-    .pill-row {
-      display: flex; flex-wrap: wrap; gap: 0.55rem;
-      margin-bottom: 2.2rem;
-    }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 2.2rem; }
     .pill {
       padding: 0.28rem 0.9rem; border-radius: 40px;
       font-size: 0.72rem; font-weight: 500;
@@ -184,10 +174,7 @@
       color: var(--red-dark);
     }
 
-    .cta-row {
-      display: flex; gap: 0.9rem; flex-wrap: wrap;
-      margin-bottom: 2.8rem;
-    }
+    .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.7rem 1.5rem; border-radius: 40px;
@@ -217,20 +204,11 @@
     }
     .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
 
-    /* ─── ABOUT ─── */
-    .about-grid {
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem;
-    }
-    .about-text p {
-      color: var(--ink-2); line-height: 1.75; margin-bottom: 1.1rem;
-      font-weight: 300; font-size: 0.95rem;
-    }
+    .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; }
+    .about-text p { color: var(--ink-2); line-height: 1.75; margin-bottom: 1.1rem; font-weight: 300; font-size: 0.95rem; }
 
     .skill-block { margin-bottom: 1.8rem; }
-    .skill-label {
-      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--red); font-weight: 600; margin-bottom: 0.7rem;
-    }
+    .skill-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); font-weight: 600; margin-bottom: 0.7rem; }
     .tag-cloud { display: flex; flex-wrap: wrap; gap: 0.45rem; }
     .tag {
       background: rgba(255,255,255,0.55);
@@ -242,9 +220,7 @@
     }
     .tag:hover { border-color: var(--red); background: rgba(184,64,54,0.08); color: var(--red-dark); }
 
-    /* ─── EXPERIENCE ─── */
     .exp-list { display: flex; flex-direction: column; gap: 1.2rem; }
-
     .exp-card {
       background: rgba(255,255,255,0.65);
       backdrop-filter: blur(16px);
@@ -263,7 +239,6 @@
     }
     .exp-card:hover::before { background: var(--red); }
     .exp-card:hover { border-color: rgba(255,255,255,0.8); box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
-
     .exp-role { font-weight: 600; font-size: 1rem; margin-bottom: 0.2rem; }
     .exp-org { color: var(--red); font-size: 0.82rem; font-weight: 500; margin-bottom: 0.2rem; }
     .exp-period { font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0.02em; margin-bottom: 0.6rem; }
@@ -275,9 +250,7 @@
       margin: 2.2rem 0 1.2rem;
       display: flex; align-items: center; gap: 1rem;
     }
-    .section-divider::after {
-      content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.5);
-    }
+    .section-divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.5); }
 
     .virtual-note {
       background: rgba(201,149,42,0.1);
@@ -290,7 +263,6 @@
     }
     .virtual-note::before { content: "ℹ️"; flex-shrink: 0; }
 
-    /* ─── PROJECTS ─── */
     .proj-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.4rem;
@@ -348,11 +320,7 @@
       margin-bottom: 0.5rem; line-height: 1.2;
       letter-spacing: -0.01em;
     }
-    .proj-desc {
-      font-size: 0.8rem; color: var(--ink-2);
-      line-height: 1.6; flex: 1; font-weight: 300;
-      margin-bottom: 1rem;
-    }
+    .proj-desc { font-size: 0.8rem; color: var(--ink-2); line-height: 1.6; flex: 1; font-weight: 300; margin-bottom: 1rem; }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
     .proj-tag {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
@@ -364,10 +332,7 @@
     .proj-tag.ml { background: rgba(74,45,138,0.07); border-color: rgba(196,184,232,0.6); color: #4a2d8a; }
     .proj-tag.cloud { background: rgba(201,149,42,0.08); border-color: rgba(224,200,112,0.5); color: #7a5c18; }
 
-    .proj-footer {
-      display: flex; align-items: center; gap: 0.7rem; margin-top: auto;
-      flex-wrap: wrap;
-    }
+    .proj-footer { display: flex; align-items: center; gap: 0.7rem; margin-top: auto; flex-wrap: wrap; }
     .live-badge {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
       background: rgba(26,102,69,0.1); border: 1px solid rgba(168,217,187,0.6); color: #1a6645;
@@ -383,7 +348,6 @@
     }
     .proj-link:hover { border-bottom-color: currentColor; }
 
-    /* ─── EDUCATION ─── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.8rem; }
     .edu-card {
       background: rgba(255,255,255,0.65);
@@ -431,7 +395,6 @@
     .learning-item a { color: var(--red); text-decoration: none; font-weight: 500; }
     .learning-item a:hover { text-decoration: underline; }
 
-    /* ─── CONTACT ─── */
     .cta-banner {
       background: linear-gradient(135deg, rgba(28,24,18,0.9) 0%, rgba(45,37,32,0.92) 100%);
       backdrop-filter: blur(20px);
@@ -442,42 +405,23 @@
       margin-bottom: 2.8rem;
       color: #fff;
     }
-    .cta-banner h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem; font-weight: 400;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-      color: #fff;
-    }
-    .cta-banner p {
-      font-size: 0.85rem; color: rgba(255,255,255,0.65);
-      margin-bottom: 0.3rem; font-weight: 300;
-    }
-    .cta-banner-btns {
-      display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-    .cta-banner .btn-red {
-      background: var(--red);
-      box-shadow: 0 2px 12px rgba(184,64,54,0.35);
-    }
+    .cta-banner h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 0.5rem; color: #fff; }
+    .cta-banner p { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem; font-weight: 300; }
+    .cta-banner-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .cta-banner .btn-red { background: var(--red); box-shadow: 0 2px 12px rgba(184,64,54,0.35); }
     .cta-banner .btn-linkedin {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.7rem 1.5rem; border-radius: 40px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: var(--t);
+      font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: var(--t);
       background: #0a66c2; color: #fff;
     }
     .cta-banner .btn-linkedin:hover { background: #085195; transform: translateY(-2px); }
     .cta-banner .btn-resume {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.7rem 1.5rem; border-radius: 40px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: var(--t);
+      font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none; transition: var(--t);
       background: #16a34a; color: #fff; border: none;
     }
     .cta-banner .btn-resume:hover { background: #15803d; transform: translateY(-2px); }
@@ -497,7 +441,6 @@
     .contact-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); margin-bottom: 0.2rem; }
     .contact-val { font-size: 0.82rem; font-weight: 600; color: var(--ink); }
 
-    /* ─── FOOTER ─── */
     footer {
       text-align: center; padding: 2rem;
       border-top: 1px solid rgba(255,255,255,0.4);
@@ -506,7 +449,6 @@
       backdrop-filter: blur(8px);
     }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 760px) {
       nav { padding: 0 1.2rem; height: 58px; }
       .nav-links { gap: 0; }
@@ -574,9 +516,9 @@
         <div class="skill-label">Tech Stack</div>
         <div class="tag-cloud">
           <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span>
-          <span class="tag">React</span><span class="tag">Flask</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">FastAPI</span>
+          <span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Flask</span>
           <span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
-          <span class="tag">Docker</span><span class="tag">AWS S3</span><span class="tag">CloudFront</span><span class="tag">EC2</span>
+          <span class="tag">Docker</span><span class="tag">AWS S3</span><span class="tag">CloudFront</span><span class="tag">EC2</span><span class="tag">SageMaker</span>
           <span class="tag">GitHub Actions</span><span class="tag">SQLite</span>
         </div>
       </div>
@@ -645,17 +587,21 @@
   <h2 class="sh">Featured <em>Projects</em></h2>
   <div class="proj-grid">
 
+    <!-- WYA — FLAGSHIP, corrected tech stack -->
     <div class="proj-card flagship">
-      <div class="proj-eyebrow">✦ Flagship Project · Full-Stack + AI Style + AWS Cloud</div>
+      <div class="proj-eyebrow">✦ Flagship Project · Full-Stack AI + AWS Cloud + Computer Vision</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
-      <div class="proj-desc">Full-stack web app that helps users discover and refine their personal aesthetic identity. Interactive quiz maps preferences to aesthetic categories — from Dark Academia to Cottagecore — and generates a personalized style profile. Designed with an AI-assisted recommendation layer, smooth frontend interactions, and backend orchestration. Fully deployed and live on AWS CloudFront for global low-latency access. Featured as my primary project to showcase creative AI + human-centric design + cloud engineering.</div>
+      <div class="proj-desc">Full-stack wardrobe intelligence app that turns a personal closet into a queryable AI system. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Deployed end-to-end on AWS with CI/CD via GitHub Actions, rate-limited AI endpoints, and 47 automated tests.</div>
       <div class="proj-tags">
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">FastAPI</span>
         <span class="proj-tag">Python</span>
-        <span class="proj-tag">Flask</span>
-        <span class="proj-tag">JavaScript</span>
-        <span class="proj-tag ai">AI / Fashion Intelligence</span>
-        <span class="proj-tag cloud">AWS CloudFront</span>
-        <span class="proj-tag cloud">S3 + EC2</span>
+        <span class="proj-tag">Docker</span>
+        <span class="proj-tag ai">FashionCLIP · SageMaker</span>
+        <span class="proj-tag cloud">AWS EC2 · S3 · CloudFront</span>
+        <span class="proj-tag">GitHub Actions CI/CD</span>
+        <span class="proj-tag">SQLite</span>
       </div>
       <div class="proj-footer">
         <span class="live-badge">Live on AWS CloudFront</span>
@@ -663,25 +609,7 @@
       </div>
     </div>
 
-    <div class="proj-card flowwrite">
-      <div class="proj-eyebrow">✦ NLP Pipeline · AI Text Humanizer</div>
-      <div class="proj-title">FlowWrite — AI Text Humanizer</div>
-      <div class="proj-desc">A multi-pass NLP pipeline that rewrites AI-generated text into natural, human-like writing. Achieves exceptionally low AI-detection scores across 8 major detectors including Turnitin, GPTZero, and Copyleaks. The pipeline combines spaCy chunking, SBERT semantic merging, local LLM rewriting, and a custom Human Likeness Score (HLS) to select the best candidate output across burstiness, readability, coherence, and semantic similarity dimensions.</div>
-      <div class="proj-tags">
-        <span class="proj-tag nlp">NLP Pipeline</span>
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">FastAPI</span>
-        <span class="proj-tag">spaCy</span>
-        <span class="proj-tag">SBERT</span>
-        <span class="proj-tag">Ollama · llama3.2</span>
-        <span class="proj-tag cloud">AWS S3 + CloudFront</span>
-      </div>
-      <div class="proj-footer">
-        <span class="live-badge">Frontend Live</span>
-        <a class="proj-link" href="https://github.com/ria0304/flowWrite--ai-text-humanizer" target="_blank">GitHub →</a>
-      </div>
-    </div>
-
+    <!-- BOOKNEST — moved up, before FlowWrite -->
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack + Cloud</div>
       <div class="proj-title">BookNest+</div>
@@ -690,7 +618,7 @@
         <span class="proj-tag">TypeScript</span>
         <span class="proj-tag">React</span>
         <span class="proj-tag">Node.js</span>
-        <span class="proj-tag cloud">AWS S3 + CloudFront + EC2</span>
+        <span class="proj-tag cloud">AWS S3 · CloudFront · EC2</span>
         <span class="proj-tag">Docker</span>
         <span class="proj-tag">GitHub Actions</span>
         <span class="proj-tag ai">Recommendation AI</span>
@@ -701,6 +629,7 @@
       </div>
     </div>
 
+    <!-- BITCOIN FRAUD — moved up -->
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
@@ -713,6 +642,26 @@
       </div>
       <div class="proj-footer">
         <a class="proj-link" href="https://github.com/ria0304/CREDIT-CARD-DETECTION" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- FLOWWRITE — reframed, moved down -->
+    <div class="proj-card flowwrite">
+      <div class="proj-eyebrow">✦ NLP Pipeline · Text Style Transfer</div>
+      <div class="proj-title">FlowWrite — NLP Text Style Transfer Pipeline</div>
+      <div class="proj-desc">A multi-pass NLP pipeline that rewrites text to match natural human writing patterns. Combines spaCy chunking for sentence segmentation, SBERT semantic similarity for candidate ranking, and a local LLM (llama3.2 via Ollama) for rewriting. A custom Human Likeness Score (HLS) evaluates outputs across burstiness, readability, coherence, and semantic preservation — selecting the best candidate from multiple rewrite passes. Demonstrates applied NLP, multi-model orchestration, and custom evaluation metric design.</div>
+      <div class="proj-tags">
+        <span class="proj-tag nlp">NLP Pipeline</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">spaCy</span>
+        <span class="proj-tag">SBERT</span>
+        <span class="proj-tag">Ollama · llama3.2</span>
+        <span class="proj-tag cloud">AWS S3 · CloudFront</span>
+      </div>
+      <div class="proj-footer">
+        <span class="live-badge">Frontend Live</span>
+        <a class="proj-link" href="https://github.com/ria0304/flowWrite--ai-text-humanizer" target="_blank">GitHub →</a>
       </div>
     </div>
 
@@ -756,11 +705,7 @@
       <div class="edu-school">Manipal University, Jaipur</div>
       <div class="edu-years">2024 – 2028</div>
     </div>
-    <div class="edu-card">
-      <div class="edu-degree">High School Diploma</div>
-      <div class="edu-school">N.K. Bagrodia Public School, New Delhi</div>
-      <div class="edu-years">2011 – 2024</div>
-    </div>
+
   </div>
   <div class="cert-box">
     <h3>Certifications</h3>
@@ -841,4 +786,3 @@
 </script>
 </body>
 </html>
-
