@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Ria S. | Software Engineer & Data Science Student | Portfolio</title>
-  <meta name="description" content="Ria S. — 2nd year CS & Data Science student building AI apps on AWS. Featured projects: WYA (aesthetic finder), BookNest+, Bitcoin fraud detection.">
+  <meta name="description" content="Ria S. — 2nd year CS & Data Science student building AI apps on AWS. Featured projects: WYA, Luna AI Stylist, BookNest+, Bitcoin fraud detection.">
   <meta name="keywords" content="Ria S., portfolio, software engineer, data science, AWS, machine learning, full-stack">
   <meta name="author" content="Ria S.">
   <meta property="og:title" content="Ria S. | Software Engineer & Data Science Student">
-  <meta property="og:description" content="2nd year CS & Data Science student building AI apps on AWS. WYA, BookNest+, Bitcoin fraud detection.">
+  <meta property="og:description" content="2nd year CS & Data Science student building AI apps on AWS. WYA, Luna, BookNest+, Bitcoin fraud detection.">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -282,6 +282,8 @@
       border-color: rgba(255,255,255,0.85);
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
+
+    /* WYA — dark flagship */
     .proj-card.flagship {
       grid-column: span 2;
       background: linear-gradient(135deg, rgba(28,24,18,0.92) 0%, rgba(45,37,32,0.95) 100%);
@@ -294,6 +296,28 @@
     .proj-card.flagship .live-badge { background: #26a269; color: #fff; border: none; }
     .proj-card.flagship .proj-link { color: #f9c56a; }
 
+    /* Luna — pink/purple gradient */
+    .proj-card.luna {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(44,18,35,0.93) 0%, rgba(35,28,58,0.95) 50%, rgba(18,38,44,0.93) 100%);
+      backdrop-filter: blur(20px);
+      color: #fff; border-color: rgba(255,255,255,0.08);
+    }
+    .proj-card.luna .proj-eyebrow { color: #ebb3d4; }
+    .proj-card.luna .proj-title { color: #fff; }
+    .proj-card.luna .proj-desc { color: rgba(255,255,255,0.65); }
+    .proj-card.luna .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+    .proj-card.luna .proj-tag.wya { background: rgba(235,179,212,0.15); border-color: rgba(235,179,212,0.3); color: #ebb3d4; }
+    .proj-card.luna .wip-badge {
+      font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
+      background: rgba(235,179,212,0.15); border: 1px solid rgba(235,179,212,0.35); color: #ebb3d4;
+      font-weight: 600; letter-spacing: 0.02em;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .proj-card.luna .wip-badge::before { content: "◐"; font-size: 0.5rem; }
+    .proj-card.luna .proj-link { color: #c2caf5; }
+
+    /* FlowWrite */
     .proj-card.flowwrite {
       grid-column: span 2;
       background: linear-gradient(135deg, rgba(15,32,39,0.93) 0%, rgba(26,58,58,0.95) 60%, rgba(13,43,43,0.93) 100%);
@@ -456,6 +480,7 @@
       section { padding: 2.5rem 1.2rem 4rem; }
       .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
       .proj-card.flagship { grid-column: span 1; }
+      .proj-card.luna { grid-column: span 1; }
       .proj-card.flowwrite { grid-column: span 1; }
       .hero-h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
       .cta-banner { padding: 2rem 1.2rem; }
@@ -479,7 +504,7 @@
   </nav>
 </div>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero" class="active">
   <div class="hero-badge">2nd Year · CS & Data Science</div>
   <h1 class="hero-h1">Building intelligence,<br>one <em>algorithm</em> at a time.</h1>
@@ -503,13 +528,13 @@
   </div>
 </section>
 
-<!-- ── ABOUT ── -->
+<!-- ABOUT -->
 <section id="about">
   <h2 class="sh">About <em>me</em></h2>
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a second-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
-      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently exploring scalable ML systems, cloud-native architectures, and recommendation engines.</p>
+      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend.</p>
     </div>
     <div>
       <div class="skill-block">
@@ -544,7 +569,7 @@
   </div>
 </section>
 
-<!-- ── EXPERIENCE ── -->
+<!-- EXPERIENCE -->
 <section id="experience">
   <h2 class="sh">Work <em>Experience</em></h2>
   <div class="exp-list">
@@ -582,16 +607,16 @@
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- PROJECTS -->
 <section id="projects">
   <h2 class="sh">Featured <em>Projects</em></h2>
   <div class="proj-grid">
 
-    <!-- WYA — FLAGSHIP, corrected tech stack -->
+    <!-- WYA -->
     <div class="proj-card flagship">
       <div class="proj-eyebrow">✦ Flagship Project · Full-Stack AI + AWS Cloud + Computer Vision</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
-      <div class="proj-desc">Full-stack wardrobe intelligence app that turns a personal closet into a queryable AI system. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Deployed end-to-end on AWS with CI/CD via GitHub Actions, rate-limited AI endpoints, and 47 automated tests.</div>
+      <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
       <div class="proj-tags">
         <span class="proj-tag">React</span>
         <span class="proj-tag">TypeScript</span>
@@ -609,7 +634,26 @@
       </div>
     </div>
 
-    <!-- BOOKNEST — moved up, before FlowWrite -->
+    <!-- LUNA -->
+    <div class="proj-card luna">
+      <div class="proj-eyebrow">✦ Building Now · Conversational AI · WYA Integration</div>
+      <div class="proj-title">Luna — Conversational AI Stylist</div>
+      <div class="proj-desc">Standalone React frontend that lets you talk to your wardrobe in plain English. Luna classifies natural language intent — outfit help, wardrobe search, gap analysis, style explanation — and routes each query to the right WYA API endpoint. No backend of its own; WYA is the brain, Luna is the voice. Separate repo, separate CloudFront deployment, shared JWT auth via WYA.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag wya">Powered by WYA API</span>
+        <span class="proj-tag">Intent Classifier</span>
+        <span class="proj-tag cloud">AWS S3 · CloudFront</span>
+        <span class="proj-tag">Vite</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Deploying</span>
+        <a class="proj-link" href="https://github.com/ria0304/luna-stylist" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- BOOKNEST -->
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack + Cloud</div>
       <div class="proj-title">BookNest+</div>
@@ -620,16 +664,15 @@
         <span class="proj-tag">Node.js</span>
         <span class="proj-tag cloud">AWS S3 · CloudFront · EC2</span>
         <span class="proj-tag">Docker</span>
-        <span class="proj-tag">GitHub Actions</span>
         <span class="proj-tag ai">Recommendation AI</span>
       </div>
       <div class="proj-footer">
         <span class="live-badge">Live on AWS</span>
-        <a class="proj-link" href="https://github.com/ria0304/BOOKNEST" target="_blank">GitHub →</a>
+        <a class="proj-link" href="https://github.com/ria0304/BOOKNEST-" target="_blank">GitHub →</a>
       </div>
     </div>
 
-    <!-- BITCOIN FRAUD — moved up -->
+    <!-- BITCOIN -->
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
@@ -641,15 +684,15 @@
         <span class="proj-tag">XGBoost</span>
       </div>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/ria0304/CREDIT-CARD-DETECTION" target="_blank">View on GitHub →</a>
+        <a class="proj-link" href="https://github.com/ria0304/Bitcoin-Transaction-Fraud-Detection-" target="_blank">GitHub →</a>
       </div>
     </div>
 
-    <!-- FLOWWRITE — reframed, moved down -->
+    <!-- FLOWWRITE -->
     <div class="proj-card flowwrite">
       <div class="proj-eyebrow">✦ NLP Pipeline · Text Style Transfer</div>
       <div class="proj-title">FlowWrite — NLP Text Style Transfer Pipeline</div>
-      <div class="proj-desc">A multi-pass NLP pipeline that rewrites text to match natural human writing patterns. Combines spaCy chunking for sentence segmentation, SBERT semantic similarity for candidate ranking, and a local LLM (llama3.2 via Ollama) for rewriting. A custom Human Likeness Score (HLS) evaluates outputs across burstiness, readability, coherence, and semantic preservation — selecting the best candidate from multiple rewrite passes. Demonstrates applied NLP, multi-model orchestration, and custom evaluation metric design.</div>
+      <div class="proj-desc">Multi-pass NLP pipeline that rewrites text to match natural human writing patterns. Combines spaCy chunking, SBERT semantic similarity for candidate ranking, and a local LLM (llama3.2 via Ollama) for rewriting. A custom Human Likeness Score (HLS) evaluates outputs across burstiness, readability, coherence, and semantic preservation.</div>
       <div class="proj-tags">
         <span class="proj-tag nlp">NLP Pipeline</span>
         <span class="proj-tag">Python</span>
@@ -668,35 +711,21 @@
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning</div>
       <div class="proj-title">Smart Resale</div>
-      <div class="proj-desc">ML model predicting fair resale prices for used phones and laptops from synthesized data. Covers data preprocessing, feature engineering, and model evaluation with Pandas, NumPy, and Scikit-learn.</div>
+      <div class="proj-desc">ML model predicting fair resale prices for used phones and laptops. Covers data preprocessing, feature engineering, and model evaluation with Pandas, NumPy, and Scikit-learn.</div>
       <div class="proj-tags">
         <span class="proj-tag ml">Machine Learning</span>
         <span class="proj-tag">Python</span>
         <span class="proj-tag">Scikit-learn</span>
       </div>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/ria0304/smart-resale" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-eyebrow">Machine Learning · Health</div>
-      <div class="proj-title">Calories Burnt Prediction</div>
-      <div class="proj-desc">ML regression model estimating calories burnt during physical activity using demographic and physiological features. Includes comprehensive EDA, visualizations, and multiple model comparisons.</div>
-      <div class="proj-tags">
-        <span class="proj-tag ml">Machine Learning</span>
-        <span class="proj-tag">Health Data</span>
-        <span class="proj-tag">Python</span>
-      </div>
-      <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/ria0304/Calories-Burnt-Prediction" target="_blank">View on GitHub →</a>
+        <a class="proj-link" href="https://github.com/ria0304/smart-resale" target="_blank">GitHub →</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ── EDUCATION ── -->
+<!-- EDUCATION -->
 <section id="education">
   <h2 class="sh">Education & <em>Certifications</em></h2>
   <div class="edu-grid">
@@ -705,7 +734,6 @@
       <div class="edu-school">Manipal University, Jaipur</div>
       <div class="edu-years">2024 – 2028</div>
     </div>
-
   </div>
   <div class="cert-box">
     <h3>Certifications</h3>
@@ -717,14 +745,14 @@
   </div>
   <div class="learning-box">
     <h3>📝 Recent Learnings</h3>
-    <div class="learning-item">Deployed first AWS EC2 instance end-to-end — learned about security groups, elastic IPs, and production SSH workflows.</div>
-    <div class="learning-item">Built a custom recommendation engine (DRPA) for BookNest+ — explored collaborative filtering vs content-based approaches.</div>
+    <div class="learning-item">Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.</div>
+    <div class="learning-item">Built Luna — a standalone conversational frontend that integrates with WYA's API via intent classification and JWT auth.</div>
     <div class="learning-item">Studying Graph Neural Networks in depth — applied GATv2 and contrastive learning to beat published baselines on fraud detection.</div>
     <div class="learning-item">Solving LeetCode problems regularly — focused on arrays, graphs, and dynamic programming. <a href="https://leetcode.com/u/RIA_0304/" target="_blank">View profile →</a></div>
   </div>
 </section>
 
-<!-- ── CONTACT ── -->
+<!-- CONTACT -->
 <section id="contact">
   <h2 class="sh">Get in <em>Touch</em></h2>
   <div class="cta-banner">
