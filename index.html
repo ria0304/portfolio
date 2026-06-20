@@ -660,19 +660,22 @@
 
     <!-- LUNA -->
     <div class="proj-card luna">
-      <div class="proj-eyebrow">✦ Building Now · Conversational AI · WYA Integration</div>
+      <div class="proj-eyebrow">✦ Conversational AI · WYA Integration</div>
       <div class="proj-title">Luna — Conversational AI Stylist</div>
-      <div class="proj-desc">Standalone React frontend that lets you talk to your wardrobe in plain English. Luna classifies natural language intent — outfit help, wardrobe search, gap analysis, style explanation — and routes each query to the right WYA API endpoint. No backend of its own; WYA is the brain, Luna is the voice. Separate repo, separate CloudFront deployment, shared JWT auth via WYA.</div>
+      <div class="proj-desc">A chat interface that lets you talk to your wardrobe in plain English. A regex-based intent classifier routes structured queries — outfit suggestions, wardrobe search, gap analysis, style explanation — to the right WYA API endpoint, while open-ended fashion questions fall back to an OpenRouter LLM chain with the user's real wardrobe passed in as context. Own FastAPI server (Docker, EC2), separate CloudFront deployment, JWT auth shared with WYA.</div>
       <div class="proj-tags">
         <span class="proj-tag">React</span>
         <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">FastAPI</span>
         <span class="proj-tag wya">Powered by WYA API</span>
         <span class="proj-tag">Intent Classifier</span>
-        <span class="proj-tag cloud">AWS S3 · CloudFront</span>
-        <span class="proj-tag">Vite</span>
+        <span class="proj-tag ai">OpenRouter LLM Fallback</span>
+        <span class="proj-tag cloud">AWS EC2 · S3 · CloudFront</span>
+        <span class="proj-tag">Docker</span>
       </div>
       <div class="proj-footer">
-        <span class="wip-badge">Deploying</span>
+        <span class="wip-badge">Backend Paused (Cost Mgmt)</span>
+        <a class="proj-link" href="https://d34nojihupg1cl.cloudfront.net/" target="_blank">Live →</a>
         <a class="proj-link" href="https://github.com/ria0304/luna-stylist" target="_blank">GitHub →</a>
       </div>
     </div>
