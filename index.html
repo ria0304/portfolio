@@ -283,7 +283,6 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
 
-    /* WYA — dark flagship */
     .proj-card.flagship {
       grid-column: span 2;
       background: linear-gradient(135deg, rgba(28,24,18,0.92) 0%, rgba(45,37,32,0.95) 100%);
@@ -296,7 +295,6 @@
     .proj-card.flagship .live-badge { background: #26a269; color: #fff; border: none; }
     .proj-card.flagship .proj-link { color: #f9c56a; }
 
-    /* Luna — pink/purple gradient */
     .proj-card.luna {
       grid-column: span 2;
       background: linear-gradient(135deg, rgba(44,18,35,0.93) 0%, rgba(35,28,58,0.95) 50%, rgba(18,38,44,0.93) 100%);
@@ -317,7 +315,6 @@
     .proj-card.luna .wip-badge::before { content: "◐"; font-size: 0.5rem; }
     .proj-card.luna .proj-link { color: #c2caf5; }
 
-    /* FlowWrite */
     .proj-card.flowwrite {
       grid-column: span 2;
       background: linear-gradient(135deg, rgba(15,32,39,0.93) 0%, rgba(26,58,58,0.95) 60%, rgba(13,43,43,0.93) 100%);
@@ -400,6 +397,33 @@
     }
     .cert-item:last-child { border-bottom: none; }
     .cert-item::before { content: "✦"; color: var(--red); font-size: 0.6rem; flex-shrink: 0; }
+
+    .patent-box {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: var(--radius-md); padding: 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .patent-box h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-3); font-weight: 600; margin-bottom: 1rem; }
+    .patent-item {
+      padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.4);
+      display: flex; align-items: flex-start; gap: 0.7rem;
+    }
+    .patent-item:last-child { border-bottom: none; }
+    .patent-item::before { content: "⚗️"; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px; }
+    .patent-title { font-size: 0.84rem; color: var(--ink); font-weight: 500; margin-bottom: 0.25rem; line-height: 1.4; }
+    .patent-meta { font-size: 0.72rem; color: var(--ink-3); font-weight: 300; line-height: 1.5; }
+    .patent-meta span { color: var(--red); font-weight: 500; }
+    .patent-status {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.62rem; padding: 0.15rem 0.6rem; border-radius: 30px;
+      background: rgba(201,149,42,0.1); border: 1px solid rgba(201,149,42,0.3);
+      color: #7a5c18; font-weight: 600; letter-spacing: 0.03em;
+      margin-top: 0.35rem; width: fit-content;
+    }
+    .patent-status::before { content: "◌"; font-size: 0.5rem; }
 
     .learning-box {
       background: rgba(255,255,255,0.65);
@@ -735,6 +759,7 @@
       <div class="edu-years">2024 – 2028</div>
     </div>
   </div>
+
   <div class="cert-box">
     <h3>Certifications</h3>
     <div class="cert-item">IBM Data Analyst</div>
@@ -743,6 +768,20 @@
     <div class="cert-item">Meta Data Analyst with GenAI</div>
     <div class="cert-item">Programming in Java — NPTEL</div>
   </div>
+
+  <div class="patent-box">
+    <h3>⚗️ Research & IP</h3>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">Integrated Greywater Monitoring Device with Sensor-Based Testing and AI-Driven Reuse Recommendations</div>
+        <div class="patent-meta">
+          Patent Application Filed &nbsp;·&nbsp; Ref. <span>TEMP/E-1/75041/2026-DEL</span> &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
+        </div>
+        <div class="patent-status">Application Filed · Examination Pending</div>
+      </div>
+    </div>
+  </div>
+
   <div class="learning-box">
     <h3>📝 Recent Learnings</h3>
     <div class="learning-item">Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.</div>
