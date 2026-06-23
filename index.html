@@ -329,6 +329,26 @@
     .proj-card.flowwrite .live-badge { background: #26a269; color: #fff; border: none; }
     .proj-card.flowwrite .proj-link { color: #5dd6c0; }
 
+    .proj-card.velaris {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(38,22,16,0.93) 0%, rgba(74,45,20,0.95) 55%, rgba(54,32,12,0.93) 100%);
+      backdrop-filter: blur(20px);
+      color: #fff; border-color: rgba(255,255,255,0.08);
+    }
+    .proj-card.velaris .proj-eyebrow { color: #e8c068; }
+    .proj-card.velaris .proj-title { color: #fff; }
+    .proj-card.velaris .proj-desc { color: rgba(255,255,255,0.65); }
+    .proj-card.velaris .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+    .proj-card.velaris .proj-tag.gen { background: rgba(232,192,104,0.15); border-color: rgba(232,192,104,0.3); color: #e8c068; }
+    .proj-card.velaris .wip-badge {
+      font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
+      background: rgba(232,192,104,0.15); border: 1px solid rgba(232,192,104,0.35); color: #e8c068;
+      font-weight: 600; letter-spacing: 0.02em;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .proj-card.velaris .wip-badge::before { content: "◐"; font-size: 0.5rem; }
+    .proj-card.velaris .proj-link { color: #e8c068; }
+
     .proj-eyebrow {
       font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--red); font-weight: 600; margin-bottom: 0.5rem;
@@ -506,6 +526,7 @@
       .proj-card.flagship { grid-column: span 1; }
       .proj-card.luna { grid-column: span 1; }
       .proj-card.flowwrite { grid-column: span 1; }
+      .proj-card.velaris { grid-column: span 1; }
       .hero-h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
       .cta-banner { padding: 2rem 1.2rem; }
       .cta-banner h3 { font-size: 1.3rem; }
@@ -558,7 +579,7 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a second-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
-      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend.</p>
+      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside Velaris, an AI jewellery design tool.</p>
     </div>
     <div>
       <div class="skill-block">
@@ -677,6 +698,23 @@
         <span class="wip-badge">Backend Paused (Cost Mgmt)</span>
         <a class="proj-link" href="https://d34nojihupg1cl.cloudfront.net/" target="_blank">Live →</a>
         <a class="proj-link" href="https://github.com/ria0304/luna-stylist" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- VELARIS -->
+    <div class="proj-card velaris">
+      <div class="proj-eyebrow">✦ Generative AI · Currently Building</div>
+      <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
+      <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">React</span>
+        <span class="proj-tag gen">Generative AI · Image Generation</span>
+        <span class="proj-tag">Spec Sheet Generation</span>
+        <span class="proj-tag">PDF Export</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Currently Building</span>
+        <a class="proj-link" href="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design" target="_blank">GitHub →</a>
       </div>
     </div>
 
