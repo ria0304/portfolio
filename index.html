@@ -658,7 +658,7 @@
   <div class="proj-grid">
 
     <!-- WYA -->
-    <div class="proj-card flagship">
+    <div class="proj-card flagship" data-learning="Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.">
       <div class="proj-eyebrow">✦ Flagship Project · Full-Stack AI + AWS Cloud + Computer Vision</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
       <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
@@ -680,7 +680,7 @@
     </div>
 
     <!-- LUNA -->
-    <div class="proj-card luna">
+    <div class="proj-card luna" data-learning="Built Luna — a standalone conversational frontend that integrates with WYA's API via intent classification and JWT auth.">
       <div class="proj-eyebrow">✦ Conversational AI · WYA Integration</div>
       <div class="proj-title">Luna — Conversational AI Stylist</div>
       <div class="proj-desc">A chat interface that lets you talk to your wardrobe in plain English. A regex-based intent classifier routes structured queries — outfit suggestions, wardrobe search, gap analysis, style explanation — to the right WYA API endpoint, while open-ended fashion questions fall back to an OpenRouter LLM chain with the user's real wardrobe passed in as context. Own FastAPI server (Docker, EC2), separate CloudFront deployment, JWT auth shared with WYA.</div>
@@ -702,7 +702,7 @@
     </div>
 
     <!-- VELARIS -->
-    <div class="proj-card velaris">
+    <div class="proj-card velaris" data-learning="Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation.">
       <div class="proj-eyebrow">✦ Generative AI · Currently Building</div>
       <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
       <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
@@ -738,7 +738,7 @@
     </div>
 
     <!-- BITCOIN -->
-    <div class="proj-card">
+    <div class="proj-card" data-learning="Studying Graph Neural Networks in depth — applied GATv2 and contrastive learning to beat published baselines on fraud detection.">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
       <div class="proj-desc">Advanced fraud detection using Graph Neural Networks (GATv2) on the Elliptic Bitcoin dataset. Features a MetaEnsemble stacker, heterophily-aware readout, NT-Xent contrastive loss, and exceeds published EvolveGCN baselines on AUC and F1.</div>
@@ -825,10 +825,7 @@
 
   <div class="learning-box">
     <h3>📝 Recent Learnings</h3>
-    <div class="learning-item">Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.</div>
-    <div class="learning-item">Built Luna — a standalone conversational frontend that integrates with WYA's API via intent classification and JWT auth.</div>
-    <div class="learning-item">Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation.</div>
-    <div class="learning-item">Studying Graph Neural Networks in depth — applied GATv2 and contrastive learning to beat published baselines on fraud detection.</div>
+    <div id="dynamic-learnings"></div>
     <div class="learning-item">Solving LeetCode problems regularly — focused on arrays, graphs, and dynamic programming. <a href="https://leetcode.com/u/RIA_0304/" target="_blank">View profile →</a></div>
   </div>
 </section>
@@ -891,7 +888,27 @@
     if (sec) { sec.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     if (btn) btn.classList.add('active');
   }
-  window.addEventListener('load', () => showSection('hero'));
+  // Auto-generate "Recent Learnings" from any project card that has a data-learning attribute.
+  // To update: just edit/add the data-learning attribute on the relevant .proj-card — no need to touch this section.
+  function syncLearningsFromProjects() {
+    const container = document.getElementById('dynamic-learnings');
+    if (!container) return;
+    const cards = document.querySelectorAll('#projects .proj-card[data-learning]');
+    container.innerHTML = '';
+    cards.forEach(card => {
+      const text = card.getAttribute('data-learning');
+      if (!text) return;
+      const item = document.createElement('div');
+      item.className = 'learning-item';
+      item.textContent = text;
+      container.appendChild(item);
+    });
+  }
+
+  window.addEventListener('load', () => {
+    showSection('hero');
+    syncLearningsFromProjects();
+  });
 </script>
 </body>
 </html>
