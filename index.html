@@ -283,77 +283,32 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
 
-    .proj-card.flagship {
+    /* ATELIER — the single flagship-style rectangular card, sits above the square project grid */
+    .proj-card.atelier {
       grid-column: span 2;
-      background: linear-gradient(135deg, rgba(28,24,18,0.92) 0%, rgba(45,37,32,0.95) 100%);
-      backdrop-filter: blur(20px);
-      color: #fff; border-color: rgba(255,255,255,0.1);
-    }
-    .proj-card.flagship .proj-title { color: #fff; }
-    .proj-card.flagship .proj-desc { color: rgba(255,255,255,0.65); }
-    .proj-card.flagship .proj-tag { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); }
-    .proj-card.flagship .live-badge { background: #26a269; color: #fff; border: none; }
-    .proj-card.flagship .proj-link { color: #f9c56a; }
-
-    .proj-card.luna {
-      grid-column: span 2;
-      background: linear-gradient(135deg, rgba(44,18,35,0.93) 0%, rgba(35,28,58,0.95) 50%, rgba(18,38,44,0.93) 100%);
+      background: linear-gradient(135deg, rgba(46,20,40,0.93) 0%, rgba(38,28,58,0.95) 50%, rgba(18,42,46,0.93) 100%);
       backdrop-filter: blur(20px);
       color: #fff; border-color: rgba(255,255,255,0.08);
     }
-    .proj-card.luna .proj-eyebrow { color: #ebb3d4; }
-    .proj-card.luna .proj-title { color: #fff; }
-    .proj-card.luna .proj-desc { color: rgba(255,255,255,0.65); }
-    .proj-card.luna .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
-    .proj-card.luna .proj-tag.wya { background: rgba(235,179,212,0.15); border-color: rgba(235,179,212,0.3); color: #ebb3d4; }
-    .proj-card.luna .wip-badge {
+    .proj-card.atelier .proj-eyebrow { color: #f0b4cc; }
+    .proj-card.atelier .proj-title { color: #fff; }
+    .proj-card.atelier .proj-desc { color: rgba(255,255,255,0.65); }
+    .proj-card.atelier .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
+    .proj-card.atelier .proj-tag.hub { background: rgba(240,180,204,0.15); border-color: rgba(240,180,204,0.3); color: #f0b4cc; }
+    .proj-card.atelier .live-badge { background: #26a269; color: #fff; border: none; }
+    .proj-card.atelier .proj-link { color: #93d9cc; }
+    .proj-card.atelier .wip-badge {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
-      background: rgba(235,179,212,0.15); border: 1px solid rgba(235,179,212,0.35); color: #ebb3d4;
+      background: rgba(240,180,204,0.15); border: 1px solid rgba(240,180,204,0.35); color: #f0b4cc;
       font-weight: 600; letter-spacing: 0.02em;
       display: flex; align-items: center; gap: 0.3rem;
     }
-    .proj-card.luna .wip-badge::before { content: "◐"; font-size: 0.5rem; }
-    .proj-card.luna .proj-link { color: #c2caf5; }
-
-    .proj-card.flowwrite {
-      grid-column: span 2;
-      background: linear-gradient(135deg, rgba(15,32,39,0.93) 0%, rgba(26,58,58,0.95) 60%, rgba(13,43,43,0.93) 100%);
-      backdrop-filter: blur(20px);
-      color: #fff; border-color: rgba(255,255,255,0.08);
-    }
-    .proj-card.flowwrite .proj-eyebrow { color: #5dd6c0; }
-    .proj-card.flowwrite .proj-title { color: #fff; }
-    .proj-card.flowwrite .proj-desc { color: rgba(255,255,255,0.65); }
-    .proj-card.flowwrite .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
-    .proj-card.flowwrite .proj-tag.nlp { background: rgba(93,214,192,0.15); border-color: rgba(93,214,192,0.3); color: #5dd6c0; }
-    .proj-card.flowwrite .live-badge { background: #26a269; color: #fff; border: none; }
-    .proj-card.flowwrite .proj-link { color: #5dd6c0; }
-
-    .proj-card.velaris {
-      grid-column: span 2;
-      background: linear-gradient(135deg, rgba(38,22,16,0.93) 0%, rgba(74,45,20,0.95) 55%, rgba(54,32,12,0.93) 100%);
-      backdrop-filter: blur(20px);
-      color: #fff; border-color: rgba(255,255,255,0.08);
-    }
-    .proj-card.velaris .proj-eyebrow { color: #e8c068; }
-    .proj-card.velaris .proj-title { color: #fff; }
-    .proj-card.velaris .proj-desc { color: rgba(255,255,255,0.65); }
-    .proj-card.velaris .proj-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); }
-    .proj-card.velaris .proj-tag.gen { background: rgba(232,192,104,0.15); border-color: rgba(232,192,104,0.3); color: #e8c068; }
-    .proj-card.velaris .wip-badge {
-      font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
-      background: rgba(232,192,104,0.15); border: 1px solid rgba(232,192,104,0.35); color: #e8c068;
-      font-weight: 600; letter-spacing: 0.02em;
-      display: flex; align-items: center; gap: 0.3rem;
-    }
-    .proj-card.velaris .wip-badge::before { content: "◐"; font-size: 0.5rem; }
-    .proj-card.velaris .proj-link { color: #e8c068; }
+    .proj-card.atelier .wip-badge::before { content: "◐"; font-size: 0.5rem; }
 
     .proj-eyebrow {
       font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--red); font-weight: 600; margin-bottom: 0.5rem;
     }
-    .proj-card.flagship .proj-eyebrow { color: #f9c56a; }
 
     .proj-title {
       font-family: 'DM Serif Display', serif;
@@ -372,6 +327,9 @@
     .proj-tag.ai { background: rgba(26,102,69,0.08); border-color: rgba(168,217,187,0.6); color: #1a6645; }
     .proj-tag.ml { background: rgba(74,45,138,0.07); border-color: rgba(196,184,232,0.6); color: #4a2d8a; }
     .proj-tag.cloud { background: rgba(201,149,42,0.08); border-color: rgba(224,200,112,0.5); color: #7a5c18; }
+    .proj-tag.wya { background: rgba(184,64,54,0.08); border-color: rgba(184,64,54,0.25); color: var(--red-dark); }
+    .proj-tag.gen { background: rgba(201,149,42,0.1); border-color: rgba(201,149,42,0.3); color: #7a5c18; }
+    .proj-tag.nlp { background: rgba(26,102,69,0.08); border-color: rgba(168,217,187,0.6); color: #1a6645; }
 
     .wip-badge {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
@@ -381,7 +339,6 @@
       width: fit-content;
     }
     .wip-badge::before { content: "◐"; font-size: 0.5rem; }
-    .proj-card.flagship .wip-badge { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); }
 
     .proj-footer { display: flex; align-items: center; gap: 0.7rem; margin-top: auto; flex-wrap: wrap; }
     .live-badge {
@@ -533,10 +490,7 @@
       .nav-links button { padding: 0.4rem 0.55rem; font-size: 0.7rem; }
       section { padding: 2.5rem 1.2rem 4rem; }
       .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .proj-card.flagship { grid-column: span 1; }
-      .proj-card.luna { grid-column: span 1; }
-      .proj-card.flowwrite { grid-column: span 1; }
-      .proj-card.velaris { grid-column: span 1; }
+      .proj-card.atelier { grid-column: span 1; }
       .hero-h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
       .cta-banner { padding: 2rem 1.2rem; }
       .cta-banner h3 { font-size: 1.3rem; }
@@ -589,7 +543,7 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a second-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
-      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside Velaris, an AI jewellery design tool.</p>
+      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside Velaris, an AI jewellery design tool, unified under Atelier, a fashion tech hub linking all of them.</p>
     </div>
     <div>
       <div class="skill-block">
@@ -667,9 +621,25 @@
   <h2 class="sh">Featured <em>Projects</em></h2>
   <div class="proj-grid">
 
+    <!-- ATELIER — the one flagship rectangular box -->
+    <div class="proj-card atelier">
+      <div class="proj-eyebrow">✦ Fashion Tech Hub · Unified Launcher</div>
+      <div class="proj-title">Atelier — Fashion Tech Hub</div>
+      <div class="proj-desc">A single landing page tying together my fashion and style AI projects — WYA (wardrobe intelligence), Luna (conversational stylist), TryOn (3D avatar preview), and Velaris (AI jewellery design). No shared backend or session — each app keeps its own auth, Atelier is purely the front door. Static site with a custom pink-to-teal gradient identity, deployed on GitHub Pages.</div>
+      <div class="proj-tags">
+        <span class="proj-tag hub">Static Site</span>
+        <span class="proj-tag">HTML/CSS</span>
+        <span class="proj-tag">GitHub Pages</span>
+        <span class="proj-tag">Design System</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Building</span>
+      </div>
+    </div>
+
     <!-- WYA -->
-    <div class="proj-card flagship" data-learning="Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.">
-      <div class="proj-eyebrow">✦ Flagship Project · Full-Stack AI + AWS Cloud + Computer Vision</div>
+    <div class="proj-card" data-learning="Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.">
+      <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
       <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
       <div class="proj-tags">
@@ -690,8 +660,8 @@
     </div>
 
     <!-- LUNA -->
-    <div class="proj-card luna" data-learning="Built Luna — a standalone conversational frontend that integrates with WYA's API via intent classification and JWT auth.">
-      <div class="proj-eyebrow">✦ Conversational AI · WYA Integration</div>
+    <div class="proj-card" data-learning="Built Luna — a standalone conversational frontend that integrates with WYA's API via intent classification and JWT auth.">
+      <div class="proj-eyebrow">Conversational AI · WYA Integration</div>
       <div class="proj-title">Luna — Conversational AI Stylist</div>
       <div class="proj-desc">A chat interface that lets you talk to your wardrobe in plain English. A regex-based intent classifier routes structured queries — outfit suggestions, wardrobe search, gap analysis, style explanation — to the right WYA API endpoint, while open-ended fashion questions fall back to an OpenRouter LLM chain with the user's real wardrobe passed in as context. Own FastAPI server (Docker, EC2), separate CloudFront deployment, JWT auth shared with WYA.</div>
       <div class="proj-tags">
@@ -712,8 +682,8 @@
     </div>
 
     <!-- VELARIS -->
-    <div class="proj-card velaris" data-learning="Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation.">
-      <div class="proj-eyebrow">✦ Generative AI · Currently Building</div>
+    <div class="proj-card" data-learning="Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation.">
+      <div class="proj-eyebrow">Generative AI · Currently Building</div>
       <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
       <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
       <div class="proj-tags">
@@ -764,8 +734,8 @@
     </div>
 
     <!-- FLOWWRITE -->
-    <div class="proj-card flowwrite">
-      <div class="proj-eyebrow">✦ NLP Pipeline · Text Style Transfer</div>
+    <div class="proj-card">
+      <div class="proj-eyebrow">NLP Pipeline · Text Style Transfer</div>
       <div class="proj-title">FlowWrite — NLP Text Style Transfer Pipeline</div>
       <div class="proj-desc">Multi-pass NLP pipeline that rewrites text to match natural human writing patterns. Combines spaCy chunking, SBERT semantic similarity for candidate ranking, and a local LLM (llama3.2 via Ollama) for rewriting. A custom Human Likeness Score (HLS) evaluates outputs across burstiness, readability, coherence, and semantic preservation.</div>
       <div class="proj-tags">
