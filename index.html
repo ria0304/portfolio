@@ -331,6 +331,7 @@
     .proj-tag.wya { background: rgba(184,64,54,0.08); border-color: rgba(184,64,54,0.25); color: var(--red-dark); }
     .proj-tag.gen { background: rgba(201,149,42,0.1); border-color: rgba(201,149,42,0.3); color: #7a5c18; }
     .proj-tag.nlp { background: rgba(26,102,69,0.08); border-color: rgba(168,217,187,0.6); color: #1a6645; }
+    .proj-tag.cv { background: rgba(74,45,138,0.07); border-color: rgba(196,184,232,0.6); color: #4a2d8a; }
 
     .wip-badge {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
@@ -553,7 +554,7 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a second-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
-      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside Velaris, an AI jewellery design tool, unified under Atelier, a fashion tech hub linking all of them.</p>
+      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside TryOn, a garment cutout and outfit-building tool, and Velaris, an AI jewellery design tool, unified under Atelier, a fashion tech hub linking all of them.</p>
     </div>
     <div>
       <div class="skill-block">
@@ -689,6 +690,26 @@
         <span class="wip-badge">Backend Paused (Cost Mgmt)</span>
         <a class="proj-link" href="https://d34nojihupg1cl.cloudfront.net/" target="_blank">Live →</a>
         <a class="proj-link" href="https://github.com/ria0304/luna-stylist" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- TRYON -->
+    <div class="proj-card" data-learning="Building TryOn — a garment cutout and outfit-composition tool wired to real rembg background removal, MediaPipe BlazePose landmark fitting, and a FashionCLIP classifier ported from WYA, backed by a 69-test FastAPI suite.">
+      <div class="proj-eyebrow">Computer Vision · Currently Building</div>
+      <div class="proj-title">TryOn — Build, Compare, and Perfect Outfits</div>
+      <div class="proj-desc">Turns any clothing screenshot — Pinterest, Instagram, a store listing — into a transparent garment cutout via <code>rembg</code>, auto-categorizes it with a FashionCLIP zero-shot classifier ported from WYA, and fits it onto a 2D paper-doll or a rigged 3D mannequin using MediaPipe BlazePose landmarks and thin-plate-spline warping. Users build, save, and compare full outfit combinations, then export a finished look as a shareable magazine-style card. FastAPI backend with 69 tests at 86% coverage, run against the real CV models rather than mocks.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag cv">rembg · MediaPipe</span>
+        <span class="proj-tag ai">FashionCLIP</span>
+        <span class="proj-tag">React Three Fiber</span>
+        <span class="proj-tag">SQLite</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Currently Building</span>
+        <a class="proj-link" href="https://github.com/ria0304/TryOn" target="_blank">GitHub →</a>
       </div>
     </div>
 
