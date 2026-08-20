@@ -649,7 +649,7 @@
     </div>
 
     <!-- WYA -->
-    <div class="proj-card" data-learning="Deployed production FastAPI backend on AWS EC2 — learned security groups, elastic IPs, Docker in production, and CloudFront CDN setup.">
+    <div class="proj-card" data-learning="Filed a patent application for WYA with MUJ E-Cell, and starting work on a conference research paper on WYA.">
       <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
       <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
@@ -672,7 +672,7 @@
     </div>
 
     <!-- LUNA -->
-    <div class="proj-card" data-learning="Built Luna — a standalone conversational frontend that integrates with WYA's API via intent classification and JWT auth.">
+    <div class="proj-card">
       <div class="proj-eyebrow">Conversational AI · WYA Integration</div>
       <div class="proj-title">Luna — Conversational AI Stylist</div>
       <div class="proj-desc">A chat interface that lets you talk to your wardrobe in plain English. A regex-based intent classifier routes structured queries — outfit suggestions, wardrobe search, gap analysis, style explanation — to the right WYA API endpoint, while open-ended fashion questions fall back to an OpenRouter LLM chain with the user's real wardrobe passed in as context. Own FastAPI server (Docker, EC2), separate CloudFront deployment, JWT auth shared with WYA.</div>
@@ -694,7 +694,7 @@
     </div>
 
     <!-- TRYON -->
-    <div class="proj-card" data-learning="Building TryOn — a garment cutout and outfit-composition tool wired to real rembg background removal, MediaPipe BlazePose landmark fitting, and a FashionCLIP classifier ported from WYA, backed by a 69-test FastAPI suite.">
+    <div class="proj-card" data-learning="Building TryOn — a garment cutout and outfit-composition tool wired to real rembg background removal, MediaPipe BlazePose landmark fitting, and a FashionCLIP classifier ported from WYA, backed by a 69-test FastAPI suite." data-learning-link="https://github.com/ria0304/TryOn">
       <div class="proj-eyebrow">Computer Vision · Currently Building</div>
       <div class="proj-title">TryOn — Build, Compare, and Perfect Outfits</div>
       <div class="proj-desc">Turns any clothing screenshot — Pinterest, Instagram, a store listing — into a transparent garment cutout via <code>rembg</code>, auto-categorizes it with a FashionCLIP zero-shot classifier ported from WYA, and fits it onto a 2D paper-doll or a rigged 3D mannequin using MediaPipe BlazePose landmarks and thin-plate-spline warping. Users build, save, and compare full outfit combinations, then export a finished look as a shareable magazine-style card. FastAPI backend with 69 tests at 86% coverage, run against the real CV models rather than mocks.</div>
@@ -714,7 +714,7 @@
     </div>
 
     <!-- VELARIS -->
-    <div class="proj-card" data-learning="Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation.">
+    <div class="proj-card" data-learning="Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation." data-learning-link="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design">
       <div class="proj-eyebrow">Generative AI · Currently Building</div>
       <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
       <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
@@ -750,7 +750,7 @@
     </div>
 
     <!-- BITCOIN -->
-    <div class="proj-card" data-learning="Studying Graph Neural Networks in depth — applied GATv2 and contrastive learning to beat published baselines on fraud detection.">
+    <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
       <div class="proj-desc">Advanced fraud detection using Graph Neural Networks (GATv2) on the Elliptic Bitcoin dataset. Features a MetaEnsemble stacker, heterophily-aware readout, NT-Xent contrastive loss, and exceeds published EvolveGCN baselines on AUC and F1.</div>
@@ -910,9 +910,40 @@
     cards.forEach(card => {
       const text = card.getAttribute('data-learning');
       if (!text) return;
+      const link = card.getAttribute('data-learning-link');
       const item = document.createElement('div');
       item.className = 'learning-item';
-      item.textContent = text;
+      if (link) {
+        item.textContent = text + ' ';
+        const a = document.createElement('a');
+        a.href = link;
+        a.target = '_blank';
+        a.textContent = 'View repo →';
+        item.appendChild(a);
+      } else {
+        item.textContent = text;
+      }
+      container.appendChild(item);
+    });
+
+    // Fixed learnings not tied to a project card in the grid above.
+    // Add/remove entries here directly.
+    const fixedLearnings = [
+      { text: 'For glowing-guide, the model is currently being prepared/finalized — drafting of the research paper on Deepfake Detection Under Skin-Tone and Lighting Variations will follow after that.', link: 'https://github.com/ria0304/glowing-guide' }
+    ];
+    fixedLearnings.forEach(entry => {
+      const item = document.createElement('div');
+      item.className = 'learning-item';
+      if (entry.link) {
+        item.textContent = entry.text + ' ';
+        const a = document.createElement('a');
+        a.href = entry.link;
+        a.target = '_blank';
+        a.textContent = 'View repo →';
+        item.appendChild(a);
+      } else {
+        item.textContent = entry.text;
+      }
       container.appendChild(item);
     });
   }
