@@ -5,7 +5,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Ria S. | Software Engineer & Data Science Student | Portfolio</title>
-  <meta name="description" content="Ria S. — 2nd year CS & Data Science student building AI apps on AWS. Featured projects: WYA, Luna AI Stylist, BookNest+, Bitcoin fraud detection.">
+  <meta name="description" content="Ria S. — 3rd year CS & Data Science student building AI apps on AWS. Featured projects: WYA, Luna AI Stylist, BookNest+, Bitcoin fraud detection.">
   <meta name="keywords" content="Ria S., portfolio, software engineer, data science, AWS, machine learning, full-stack">
   <meta name="author" content="Ria S.">
   <meta property="og:title" content="Ria S. | Software Engineer & Data Science Student">
@@ -375,11 +375,6 @@
     }
     .star-badge::before { content: "★"; font-size: 0.6rem; }
 
-    .gh-auto-note {
-      font-size: 0.75rem; color: var(--ink-3); font-weight: 300;
-      margin: -0.6rem 0 1.2rem;
-    }
-
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.8rem; }
     .edu-card {
       background: rgba(255,255,255,0.65);
@@ -539,7 +534,7 @@
 
 <!-- HERO -->
 <section id="hero" class="active">
-  <div class="hero-badge">2nd Year · CS & Data Science</div>
+  <div class="hero-badge">3rd Year · CS & Data Science</div>
   <h1 class="hero-h1">Building intelligence,<br>one <em>algorithm</em> at a time.</h1>
   <p class="hero-sub">I'm Ria — software engineer & data science enthusiast. I craft ML models, full-stack tools, and AI products that solve real-world problems.</p>
   <div class="pill-row">
@@ -557,7 +552,7 @@
   <div class="hero-meta">
     <span>📍 New Delhi, India</span>
     <span>🎓 B.Tech CS + DS @ Manipal University Jaipur</span>
-    <span>🔭 2nd Year · 2024–2028</span>
+    <span>🔭 3rd Year · 2024–2028</span>
   </div>
 </section>
 
@@ -566,7 +561,7 @@
   <h2 class="sh">About <em>me</em></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a second-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
+      <p>I'm a third-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
       <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside TryOn, a garment cutout and outfit-building tool, and Velaris, an AI jewellery design tool, unified under Atelier, a fashion tech hub linking all of them.</p>
     </div>
     <div>
@@ -815,7 +810,6 @@
   </div>
 
   <div class="section-divider" id="gh-auto-divider" style="margin-top:2.8rem; display:none;">⭐ Also on GitHub (auto-synced)</div>
-  <p class="gh-auto-note" id="gh-auto-note" style="display:none;">Pulled live from the GitHub API — any public, non-fork repo of mine that's picked up at least one star shows up here automatically, no manual editing needed.</p>
   <div class="proj-grid" id="gh-auto-grid"></div>
 
 </section>
@@ -1008,7 +1002,6 @@
   async function loadStarredGitHubProjects() {
     const grid = document.getElementById('gh-auto-grid');
     const divider = document.getElementById('gh-auto-divider');
-    const note = document.getElementById('gh-auto-note');
     if (!grid) return;
 
     try {
@@ -1030,7 +1023,6 @@
 
       grid.innerHTML = starred.map(ghCard).join('');
       divider.style.display = 'flex';
-      note.style.display = 'block';
     } catch (err) {
       // Fail silently on the page (e.g. rate-limited or offline) — don't show a broken section.
       console.warn('GitHub auto-sync skipped:', err);
