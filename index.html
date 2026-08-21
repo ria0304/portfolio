@@ -375,6 +375,45 @@
     }
     .star-badge::before { content: "★"; font-size: 0.6rem; }
 
+    .gh-live-note {
+      font-size: 0.8rem; color: var(--ink-3); font-weight: 300;
+      margin: -2rem 0 2rem;
+    }
+    .gh-stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+    }
+    .gh-stat-card {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem;
+      text-align: center;
+    }
+    .gh-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem; color: var(--red);
+      line-height: 1; margin-bottom: 0.4rem;
+    }
+    .gh-stat-label {
+      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--ink-3); font-weight: 600;
+    }
+    .gh-stat-langs { text-align: left; }
+    .gh-stat-langs .gh-stat-label { margin-bottom: 0.7rem; }
+    .gh-stat-langs .tag-cloud { justify-content: flex-start; }
+    .gh-repo-updated {
+      font-size: 0.68rem; color: var(--ink-3); font-weight: 400;
+      margin-top: 0.2rem;
+    }
+    .gh-loading, .gh-error {
+      font-size: 0.85rem; color: var(--ink-3); font-weight: 300;
+      padding: 1.5rem 0; grid-column: 1 / -1;
+    }
+    .gh-error { color: var(--red-dark); }
+
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.8rem; }
     .edu-card {
       background: rgba(255,255,255,0.65);
@@ -526,6 +565,7 @@
       <button onclick="showSection('about')" id="nav-about">About</button>
       <button onclick="showSection('experience')" id="nav-experience">Experience</button>
       <button onclick="showSection('projects')" id="nav-projects">Projects</button>
+      <button onclick="showSection('github')" id="nav-github">GitHub</button>
       <button onclick="showSection('education')" id="nav-education">Education</button>
       <button onclick="showSection('contact')" id="nav-contact">Contact</button>
     </div>
@@ -814,6 +854,24 @@
 
 </section>
 
+<!-- GITHUB ACTIVITY -->
+<section id="github">
+  <h2 class="sh">GitHub <em>Activity</em></h2>
+  <p class="gh-live-note">Live from the GitHub API — updates automatically as I push new code.</p>
+
+  <div class="gh-stats-grid" id="gh-stats-grid">
+    <div class="gh-stat-card"><div class="gh-stat-num" id="gh-stat-repos">—</div><div class="gh-stat-label">Repositories</div></div>
+    <div class="gh-stat-card"><div class="gh-stat-num" id="gh-stat-stars">—</div><div class="gh-stat-label">Total Stars ⭐</div></div>
+    <div class="gh-stat-card"><div class="gh-stat-num" id="gh-stat-forks">—</div><div class="gh-stat-label">Total Forks</div></div>
+    <div class="gh-stat-card gh-stat-langs"><div class="gh-stat-label">Top Languages</div><div class="tag-cloud" id="gh-stat-lang-tags"></div></div>
+  </div>
+
+  <div class="section-divider" style="margin-top:2.2rem;">Recent Repositories</div>
+  <div class="proj-grid" id="gh-recent-grid">
+    <div class="gh-loading">Loading repositories from GitHub…</div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section id="education">
   <h2 class="sh">Education & <em>Certifications</em></h2>
@@ -999,40 +1057,99 @@
       </div>`;
   }
 
-  async function loadStarredGitHubProjects() {
-    const grid = document.getElementById('gh-auto-grid');
-    const divider = document.getElementById('gh-auto-divider');
-    if (!grid) return;
+  function ghRecentCard(repo) {
+    const desc = repo.description ? repo.description : 'No description provided.';
+    const lang = repo.language;
+    const updated = new Date(repo.pushed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    return `
+      <div class="proj-card">
+        <div class="proj-eyebrow">${lang ? lang : 'GitHub'}</div>
+        <div class="proj-title">${repo.name}</div>
+        <div class="proj-desc">${desc}</div>
+        <div class="proj-tags">
+          ${lang ? `<span class="proj-tag">${lang}</span>` : ''}
+          ${repo.stargazers_count > 0 ? `<span class="proj-tag">★ ${repo.stargazers_count}</span>` : ''}
+          ${repo.forks_count > 0 ? `<span class="proj-tag">⑂ ${repo.forks_count}</span>` : ''}
+        </div>
+        <div class="proj-footer" style="flex-direction:column; align-items:flex-start; gap:0.2rem;">
+          <a class="proj-link" href="${repo.html_url}" target="_blank">GitHub →</a>
+          <span class="gh-repo-updated">Updated ${updated}</span>
+        </div>
+      </div>`;
+  }
 
+  // Single shared fetch — drives the "Also on GitHub" starred strip in Projects
+  // AND the full GitHub Activity section (stats + recent repos), so we only
+  // spend one API call against the 60/hour unauthenticated limit instead of two.
+  async function loadGitHubData() {
+    const starGrid = document.getElementById('gh-auto-grid');
+    const starDivider = document.getElementById('gh-auto-divider');
+    const recentGrid = document.getElementById('gh-recent-grid');
+
+    let repos;
     try {
       const res = await fetch(`https://api.github.com/users/${GH_USERNAME}/repos?per_page=100&sort=updated`);
       if (!res.ok) throw new Error('GitHub API request failed: ' + res.status);
-      const repos = await res.json();
+      repos = await res.json();
       if (!Array.isArray(repos)) throw new Error('Unexpected GitHub API response');
+    } catch (err) {
+      console.warn('GitHub fetch failed:', err);
+      if (recentGrid) {
+        recentGrid.innerHTML = '<div class="gh-error">Couldn\'t load GitHub data right now — likely a rate limit or network issue. Refresh in a bit.</div>';
+      }
+      // Starred strip fails silently (it's supplementary); Activity section shows the error since it's the explicit feature.
+      return;
+    }
 
-      const starred = repos
-        .filter(r => !r.fork)
+    const ownRepos = repos.filter(r => !r.fork);
+
+    // --- Starred strip (Projects section, supplementary) ---
+    if (starGrid) {
+      const starred = ownRepos
         .filter(r => (r.stargazers_count || 0) > 0)
         .filter(r => !GH_CURATED_REPOS.has(r.name))
         .sort((a, b) => b.stargazers_count - a.stargazers_count);
-
-      if (starred.length === 0) {
-        // Nothing to show yet — keep the section hidden rather than showing an empty header.
-        return;
+      if (starred.length > 0) {
+        starGrid.innerHTML = starred.map(ghCard).join('');
+        starDivider.style.display = 'flex';
       }
+    }
 
-      grid.innerHTML = starred.map(ghCard).join('');
-      divider.style.display = 'flex';
-    } catch (err) {
-      // Fail silently on the page (e.g. rate-limited or offline) — don't show a broken section.
-      console.warn('GitHub auto-sync skipped:', err);
+    // --- GitHub Activity section (explicit, always-visible feature) ---
+    const totalStars = ownRepos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+    const totalForks = ownRepos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
+
+    const langCounts = {};
+    ownRepos.forEach(r => {
+      if (r.language) langCounts[r.language] = (langCounts[r.language] || 0) + 1;
+    });
+    const topLangs = Object.entries(langCounts).sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+    const repoCountEl = document.getElementById('gh-stat-repos');
+    const starsEl = document.getElementById('gh-stat-stars');
+    const forksEl = document.getElementById('gh-stat-forks');
+    const langTagsEl = document.getElementById('gh-stat-lang-tags');
+    if (repoCountEl) repoCountEl.textContent = ownRepos.length;
+    if (starsEl) starsEl.textContent = totalStars;
+    if (forksEl) forksEl.textContent = totalForks;
+    if (langTagsEl) {
+      langTagsEl.innerHTML = topLangs.length
+        ? topLangs.map(([lang, count]) => `<span class="tag">${lang} (${count})</span>`).join('')
+        : '<span class="tag">No language data</span>';
+    }
+
+    if (recentGrid) {
+      const recent = [...ownRepos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 6);
+      recentGrid.innerHTML = recent.length
+        ? recent.map(ghRecentCard).join('')
+        : '<div class="gh-loading">No public repositories found.</div>';
     }
   }
 
   window.addEventListener('load', () => {
     showSection('hero');
     syncLearningsFromProjects();
-    loadStarredGitHubProjects();
+    loadGitHubData();
   });
 </script>
 </body>
