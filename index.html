@@ -367,6 +367,19 @@
     }
     .proj-link:hover { border-bottom-color: currentColor; }
 
+    .star-badge {
+      font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
+      background: rgba(201,149,42,0.1); border: 1px solid rgba(201,149,42,0.3); color: #7a5c18;
+      font-weight: 600; letter-spacing: 0.02em;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .star-badge::before { content: "★"; font-size: 0.6rem; }
+
+    .gh-auto-note {
+      font-size: 0.75rem; color: var(--ink-3); font-weight: 300;
+      margin: -0.6rem 0 1.2rem;
+    }
+
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.8rem; }
     .edu-card {
       background: rgba(255,255,255,0.65);
@@ -800,6 +813,11 @@
     </div>
 
   </div>
+
+  <div class="section-divider" id="gh-auto-divider" style="margin-top:2.8rem; display:none;">⭐ Also on GitHub (auto-synced)</div>
+  <p class="gh-auto-note" id="gh-auto-note" style="display:none;">Pulled live from the GitHub API — any public, non-fork repo of mine that's picked up at least one star shows up here automatically, no manual editing needed.</p>
+  <div class="proj-grid" id="gh-auto-grid"></div>
+
 </section>
 
 <!-- EDUCATION -->
@@ -948,9 +966,81 @@
     });
   }
 
+  // ---- GitHub API auto-sync: starred (public, non-fork, stargazers_count > 0) repos ----
+  // Repos already hand-curated above are excluded by name so nothing shows twice.
+  const GH_USERNAME = 'ria0304';
+  const GH_CURATED_REPOS = new Set([
+    'WYA-Whats-Your-Aesthetic',
+    'luna-stylist',
+    'TryOn',
+    'Velaris-From-Inspiration-to-Jewellery-Design',
+    'BOOKNEST-',
+    'Bitcoin-Transaction-Fraud-Detection-',
+    'flowWrite--ai-text-humanizer',
+    'smart-resale',
+    'glowing-guide',
+    'Atelier'
+  ]);
+
+  const GH_TAG_COLORS = {
+    Python: 'ml', TypeScript: '', JavaScript: '', 'Jupyter Notebook': 'ml',
+    HTML: '', CSS: '', Java: '', C: '', 'C++': ''
+  };
+
+  function ghCard(repo) {
+    const desc = repo.description ? repo.description : 'No description provided.';
+    const lang = repo.language;
+    return `
+      <div class="proj-card">
+        <div class="proj-eyebrow">${lang ? lang : 'GitHub'} · Auto-synced</div>
+        <div class="proj-title">${repo.name}</div>
+        <div class="proj-desc">${desc}</div>
+        <div class="proj-tags">
+          ${lang ? `<span class="proj-tag">${lang}</span>` : ''}
+        </div>
+        <div class="proj-footer">
+          <span class="star-badge">${repo.stargazers_count}</span>
+          <a class="proj-link" href="${repo.html_url}" target="_blank">GitHub →</a>
+        </div>
+      </div>`;
+  }
+
+  async function loadStarredGitHubProjects() {
+    const grid = document.getElementById('gh-auto-grid');
+    const divider = document.getElementById('gh-auto-divider');
+    const note = document.getElementById('gh-auto-note');
+    if (!grid) return;
+
+    try {
+      const res = await fetch(`https://api.github.com/users/${GH_USERNAME}/repos?per_page=100&sort=updated`);
+      if (!res.ok) throw new Error('GitHub API request failed: ' + res.status);
+      const repos = await res.json();
+      if (!Array.isArray(repos)) throw new Error('Unexpected GitHub API response');
+
+      const starred = repos
+        .filter(r => !r.fork)
+        .filter(r => (r.stargazers_count || 0) > 0)
+        .filter(r => !GH_CURATED_REPOS.has(r.name))
+        .sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+      if (starred.length === 0) {
+        // Nothing to show yet — keep the section hidden rather than showing an empty header.
+        return;
+      }
+
+      grid.innerHTML = starred.map(ghCard).join('');
+      divider.style.display = 'flex';
+      note.style.display = 'block';
+    } catch (err) {
+      // Fail silently on the page (e.g. rate-limited or offline) — don't show a broken section.
+      console.warn('GitHub auto-sync skipped:', err);
+    }
+  }
+
   window.addEventListener('load', () => {
     showSection('hero');
     syncLearningsFromProjects();
+    loadStarredGitHubProjects();
   });
 </script>
 </body>
