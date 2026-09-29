@@ -742,7 +742,7 @@
     </div>
 
     <!-- TRYON -->
-    <div class="proj-card" data-learning="Building TryOn — a garment cutout and outfit-composition tool wired to real rembg background removal, MediaPipe BlazePose landmark fitting, and a FashionCLIP classifier ported from WYA, backed by a 69-test FastAPI suite." data-learning-link="https://github.com/ria0304/TryOn">
+    <div class="proj-card">
       <div class="proj-eyebrow">Computer Vision · Currently Building</div>
       <div class="proj-title">TryOn — Build, Compare, and Perfect Outfits</div>
       <div class="proj-desc">Turns any clothing screenshot — Pinterest, Instagram, a store listing — into a transparent garment cutout via <code>rembg</code>, auto-categorizes it with a FashionCLIP zero-shot classifier ported from WYA, and fits it onto a 2D paper-doll or a rigged 3D mannequin using MediaPipe BlazePose landmarks and thin-plate-spline warping. Users build, save, and compare full outfit combinations, then export a finished look as a shareable magazine-style card. FastAPI backend with 69 tests at 86% coverage, run against the real CV models rather than mocks.</div>
@@ -762,7 +762,7 @@
     </div>
 
     <!-- VELARIS -->
-    <div class="proj-card" data-learning="Building Velaris — an AI-powered jewellery design tool with a React/TypeScript frontend and a FastAPI backend, including an OpenRouter multi-model fallback chain for reliable AI generation." data-learning-link="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design">
+    <div class="proj-card">
       <div class="proj-eyebrow">Generative AI · Currently Building</div>
       <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
       <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
@@ -999,7 +999,10 @@
     // Fixed learnings not tied to a project card in the grid above.
     // Add/remove entries here directly.
     const fixedLearnings = [
-      { text: 'For glowing-guide, the model is currently being prepared/finalized — drafting of the research paper on Deepfake Detection Under Skin-Tone and Lighting Variations will follow after that.', link: 'https://github.com/ria0304/glowing-guide' }
+      { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' },
+      { text: 'Working on a conference paper for HydroDrive-DQN.' },
+      { text: 'Working on a conference paper for TryOn.' },
+      { text: 'Working on a conference paper for FairFaceGuard — Deepfake Detection Under Skin-Tone and Lighting Variations. The model is being finalized first.', link: 'https://github.com/ria0304/FairFaceGuard' }
     ];
     fixedLearnings.forEach(entry => {
       const item = document.createElement('div');
@@ -1030,7 +1033,7 @@
     'Bitcoin-Transaction-Fraud-Detection-',
     'flowWrite--ai-text-humanizer',
     'smart-resale',
-    'glowing-guide',
+    'FairFaceGuard',
     'Atelier'
   ]);
 
