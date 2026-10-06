@@ -318,6 +318,7 @@
       letter-spacing: -0.01em;
     }
     .proj-desc { font-size: 0.8rem; color: var(--ink-2); line-height: 1.6; flex: 1; font-weight: 300; margin-bottom: 1rem; }
+    .proj-desc strong { font-weight: 600; color: var(--ink); }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
     .proj-tag {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
@@ -594,7 +595,7 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a third-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
-      <p>From mood-based reading platforms deployed on AWS to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. Currently building WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside TryOn, a garment cutout and outfit-building tool, and Velaris, an AI jewellery design tool, unified under Atelier, a fashion tech hub linking all of them.</p>
+      <p>From mood-based reading platforms to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. I've built WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside TryOn, a garment cutout and outfit-building tool, and I'm currently building Velaris, an AI jewellery design tool, all unified under Atelier, a fashion tech hub linking all of them.</p>
     </div>
     <div>
       <div class="skill-block">
@@ -688,9 +689,27 @@
       </div>
     </div>
 
+    <!-- LUMEN -->
+    <div class="proj-card">
+      <div class="proj-eyebrow">Systems Programming · Currently Building</div>
+      <div class="proj-title">Lumen — A 32-bit x86 Operating System</div>
+      <div class="proj-desc">An operating system built from a raw boot sector up: custom BIOS bootloader and a freestanding C kernel of roughly 13,000 lines. Implements paging with per-task address spaces, a bitmap frame allocator, an interrupt-safe heap, preemptive Ring 0/Ring 3 multitasking with fork/exec, a 25-call syscall table, an ATA driver, a persistent filesystem (LumenFS v2), an ELF loader, and a text-mode GUI. A <code>make test</code> harness boots it headless in QEMU and fails on any self-test failure.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">C</span>
+        <span class="proj-tag">x86 Assembly</span>
+        <span class="proj-tag">NASM</span>
+        <span class="proj-tag">QEMU</span>
+        <span class="proj-tag">GitHub Actions</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Currently Building</span>
+        <a class="proj-link" href="https://github.com/ria0304/Lumen" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
     <!-- WYA -->
     <div class="proj-card" data-learning="Filed a patent application for WYA with MUJ E-Cell, and starting work on a conference research paper on WYA.">
-      <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision</div>
+      <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision · Fully Built</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
       <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
       <div class="proj-tags">
@@ -705,15 +724,17 @@
         <span class="proj-tag">SQLite</span>
       </div>
       <div class="proj-footer">
+        <span class="live-badge">Fully Built</span>
         <span class="wip-badge">Backend Paused (Cost Mgmt)</span>
         <span class="idf-badge">IDF Submitted (E-Cell)</span>
+        <span class="wip-badge">Paper in Progress</span>
         <a class="proj-link" href="https://github.com/ria0304/WYA-Whats-Your-Aesthetic" target="_blank">GitHub →</a>
       </div>
     </div>
 
     <!-- LUNA -->
     <div class="proj-card">
-      <div class="proj-eyebrow">Conversational AI · WYA Integration</div>
+      <div class="proj-eyebrow">Conversational AI · WYA Integration · Fully Built</div>
       <div class="proj-title">Luna — Conversational AI Stylist</div>
       <div class="proj-desc">A chat interface that lets you talk to your wardrobe in plain English. A regex-based intent classifier routes structured queries — outfit suggestions, wardrobe search, gap analysis, style explanation — to the right WYA API endpoint, while open-ended fashion questions fall back to an OpenRouter LLM chain with the user's real wardrobe passed in as context. Own FastAPI server (Docker, EC2), separate CloudFront deployment, JWT auth shared with WYA.</div>
       <div class="proj-tags">
@@ -727,65 +748,9 @@
         <span class="proj-tag">Docker</span>
       </div>
       <div class="proj-footer">
+        <span class="live-badge">Fully Built</span>
         <span class="wip-badge">Backend Paused (Cost Mgmt)</span>
-        <a class="proj-link" href="https://d34nojihupg1cl.cloudfront.net/" target="_blank">Live →</a>
         <a class="proj-link" href="https://github.com/ria0304/luna-stylist" target="_blank">GitHub →</a>
-      </div>
-    </div>
-
-    <!-- TRYON -->
-    <div class="proj-card">
-      <div class="proj-eyebrow">Computer Vision · Currently Building</div>
-      <div class="proj-title">TryOn — Build, Compare, and Perfect Outfits</div>
-      <div class="proj-desc">Turns any clothing screenshot — Pinterest, Instagram, a store listing — into a transparent garment cutout via <code>rembg</code>, auto-categorizes it with a FashionCLIP zero-shot classifier ported from WYA, and fits it onto a 2D paper-doll or a rigged 3D mannequin using MediaPipe BlazePose landmarks and thin-plate-spline warping. Users build, save, and compare full outfit combinations, then export a finished look as a shareable magazine-style card. FastAPI backend with 69 tests at 86% coverage, run against the real CV models rather than mocks.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">React</span>
-        <span class="proj-tag">TypeScript</span>
-        <span class="proj-tag">FastAPI</span>
-        <span class="proj-tag cv">rembg · MediaPipe</span>
-        <span class="proj-tag ai">FashionCLIP</span>
-        <span class="proj-tag">React Three Fiber</span>
-        <span class="proj-tag">SQLite</span>
-      </div>
-      <div class="proj-footer">
-        <span class="wip-badge">Currently Building</span>
-        <a class="proj-link" href="https://github.com/ria0304/TryOn" target="_blank">GitHub →</a>
-      </div>
-    </div>
-
-    <!-- VELARIS -->
-    <div class="proj-card">
-      <div class="proj-eyebrow">Generative AI · Currently Building</div>
-      <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
-      <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">React</span>
-        <span class="proj-tag gen">Generative AI · Image Generation</span>
-        <span class="proj-tag">Spec Sheet Generation</span>
-        <span class="proj-tag">PDF Export</span>
-      </div>
-      <div class="proj-footer">
-        <span class="wip-badge">Currently Building</span>
-        <a class="proj-link" href="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design" target="_blank">GitHub →</a>
-      </div>
-    </div>
-
-    <!-- BOOKNEST -->
-    <div class="proj-card">
-      <div class="proj-eyebrow">Full-Stack + Cloud</div>
-      <div class="proj-title">BookNest+</div>
-      <div class="proj-desc">Smart personalized reading platform to discover, track, and manage books — powered by mood, behavior, and reading analytics. Features a custom DRPA recommendation engine, EPUB reader, book-to-movie mode via TMDB. Deployed on AWS with full CI/CD pipeline.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">TypeScript</span>
-        <span class="proj-tag">React</span>
-        <span class="proj-tag">Node.js</span>
-        <span class="proj-tag cloud">AWS S3 · CloudFront · EC2</span>
-        <span class="proj-tag">Docker</span>
-        <span class="proj-tag ai">Recommendation AI</span>
-      </div>
-      <div class="proj-footer">
-        <span class="live-badge">Live on AWS</span>
-        <a class="proj-link" href="https://github.com/ria0304/BOOKNEST-" target="_blank">GitHub →</a>
       </div>
     </div>
 
@@ -805,37 +770,43 @@
       </div>
     </div>
 
-    <!-- FLOWWRITE -->
+    <!-- TRYON -->
     <div class="proj-card">
-      <div class="proj-eyebrow">NLP Pipeline · Text Style Transfer</div>
-      <div class="proj-title">FlowWrite — NLP Text Style Transfer Pipeline</div>
-      <div class="proj-desc">Multi-pass NLP pipeline that rewrites text to match natural human writing patterns. Combines spaCy chunking, SBERT semantic similarity for candidate ranking, and a local LLM (llama3.2 via Ollama) for rewriting. A custom Human Likeness Score (HLS) evaluates outputs across burstiness, readability, coherence, and semantic preservation.</div>
+      <div class="proj-eyebrow">Computer Vision · Fully Built</div>
+      <div class="proj-title">TryOn — Build, Compare, and Perfect Outfits</div>
+      <div class="proj-desc">Turns any clothing screenshot — Pinterest, Instagram, a store listing — into a transparent garment cutout via <code>rembg</code>, auto-categorizes it with a FashionCLIP zero-shot classifier ported from WYA, and fits it onto a 2D paper-doll or a rigged 3D mannequin using MediaPipe BlazePose landmarks and thin-plate-spline warping. Users build, save, and compare full outfit combinations, then export a finished look as a shareable magazine-style card. FastAPI backend with 69 tests at 86% coverage, run against the real CV models rather than mocks.</div>
       <div class="proj-tags">
-        <span class="proj-tag nlp">NLP Pipeline</span>
-        <span class="proj-tag">Python</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
         <span class="proj-tag">FastAPI</span>
-        <span class="proj-tag">spaCy</span>
-        <span class="proj-tag">SBERT</span>
-        <span class="proj-tag">Ollama · llama3.2</span>
-        <span class="proj-tag cloud">AWS S3 · CloudFront</span>
+        <span class="proj-tag cv">rembg · MediaPipe</span>
+        <span class="proj-tag ai">FashionCLIP</span>
+        <span class="proj-tag">React Three Fiber</span>
+        <span class="proj-tag">SQLite</span>
       </div>
       <div class="proj-footer">
-        <span class="live-badge">Frontend Live</span>
-        <a class="proj-link" href="https://github.com/ria0304/flowWrite--ai-text-humanizer" target="_blank">GitHub →</a>
+        <span class="live-badge">Fully Built</span>
+        <span class="idf-badge">IDF Filed</span>
+        <span class="wip-badge">Paper in Progress</span>
+        <a class="proj-link" href="https://github.com/ria0304/TryOn" target="_blank">GitHub →</a>
       </div>
     </div>
 
+    <!-- 3D MANNEQUIN GARMENT VIEWER -->
     <div class="proj-card">
-      <div class="proj-eyebrow">Machine Learning</div>
-      <div class="proj-title">Smart Resale</div>
-      <div class="proj-desc">ML model predicting fair resale prices for used phones and laptops. Covers data preprocessing, feature engineering, and model evaluation with Pandas, NumPy, and Scikit-learn.</div>
+      <div class="proj-eyebrow">Computer Vision · Part of TryOn</div>
+      <div class="proj-title">3D Mannequin Garment Viewer</div>
+      <div class="proj-desc">Upload a single front-facing garment photo and a deterministic CV analyzer detects strap type and back construction, then renders the result on an interactive 3D dress-form mannequin with a matching generated back texture. An anti-hallucination gate reports "undetermined" below 75% confidence instead of inventing a back. Runs against an optional FastAPI backend and falls back to an equivalent client-side Canvas engine when it's offline.</div>
       <div class="proj-tags">
-        <span class="proj-tag ml">Machine Learning</span>
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">Scikit-learn</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">Three.js</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag cv">Pillow · Scanline CV</span>
+        <span class="proj-tag">Tailwind CSS</span>
       </div>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/ria0304/smart-resale" target="_blank">GitHub →</a>
+        <a class="proj-link" href="https://github.com/ria0304/3d-mannequin-garment-viewer-" target="_blank">GitHub →</a>
       </div>
     </div>
 
@@ -858,6 +829,64 @@
       </div>
     </div>
 
+    <!-- FAIRFACEGUARD -->
+    <div class="proj-card">
+      <div class="proj-eyebrow">Causal ML · Fairness in Deepfake Detection</div>
+      <div class="proj-title">FairFaceGuard — Deepfake Detection Under Skin-Tone and Lighting Variations</div>
+      <div class="proj-desc">Research pipeline that asks whether a deepfake detector's accuracy gap across skin-tone groups is really about skin tone, or about illumination cues that merely correlate with it. Faces get illuminant-corrected ITA/Fitzpatrick labels, then matched counterfactuals (skin-only, light-only, both) with an automated manipulation check. A frozen EfficientNet-B4 baseline is interrogated three ways — adversarial GRL sweeps, linear probing, and a counterfactual causal test — with bootstrap CIs and a paired permutation test. Currently a single-seed pilot on a FaceForensics++ Deepfakes-only subset; multi-seed, cross-dataset (Celeb-DF) and backbone-ablation runs are written but not yet run.</div>
+      <div class="proj-tags">
+        <span class="proj-tag ml">Causal Counterfactuals</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">PyTorch</span>
+        <span class="proj-tag cv">EfficientNet-B4 · FaceForensics++</span>
+        <span class="proj-tag">GRL Disentanglement</span>
+        <span class="proj-tag">Bootstrap CI · Permutation Test</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Paper in Progress</span>
+        <a class="proj-link" href="https://github.com/ria0304/FairFaceGuard" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- VISUALGUARD-LVLM -->
+    <div class="proj-card">
+      <div class="proj-eyebrow">Multimodal AI · Hallucination Mitigation</div>
+      <div class="proj-title">VisualGuard — Evidence-Guided Decoding for LVLMs</div>
+      <div class="proj-desc">Training-free, decoding-time method that cuts object hallucination in Large Vision-Language Models without touching the weights. At every step it scores each top-k candidate token by how well the image supports it, using LVLM attention, CLIP similarity and optional Grounding DINO region detections, then penalises the logits of unsupported candidates before the next token is chosen. Includes a KV-cached decoding loop, a per-step intervention audit trail, POPE and MME evaluation on LLaVA-1.5, ablation runners, and 297 tests that need no downloads. Full benchmark results have not been run yet.</div>
+      <div class="proj-tags">
+        <span class="proj-tag ml">LVLM · Hallucination Reduction</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">PyTorch</span>
+        <span class="proj-tag">Transformers</span>
+        <span class="proj-tag cv">CLIP · Grounding DINO</span>
+        <span class="proj-tag">LLaVA-1.5</span>
+        <span class="proj-tag">POPE · MME</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Currently Building</span>
+        <a class="proj-link" href="https://github.com/ria0304/VisualGuard-LVLM" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- GREYWATER -->
+    <div class="proj-card">
+      <div class="proj-eyebrow">Applied ML · Sustainability</div>
+      <div class="proj-title">Greywater Testing Kit + AI</div>
+      <div class="proj-desc">Turns pH, turbidity, TDS, and a microbial screening result into a reuse verdict — garden-safe, flushing-only, or unsafe — with actionable advice. A depth-5 decision tree trained on a 1,500-sample dataset grounded in CPCB/WHO thresholds reaches 90.7% test accuracy. Ships as a zero-dependency web app (stdlib <code>http.server</code>) with a JSON prediction API and CLI. Basis of the filed greywater monitoring patent. <strong>Note: this is the software/AI part only — the sensor hardware has not been built yet.</strong></div>
+      <div class="proj-tags">
+        <span class="proj-tag ml">Decision Tree</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">scikit-learn</span>
+        <span class="proj-tag">Pandas</span>
+        <span class="proj-tag">REST API</span>
+        <span class="proj-tag">Software Only · Hardware Not Built</span>
+      </div>
+      <div class="proj-footer">
+        <span class="idf-badge">Patent Application Filed</span>
+        <a class="proj-link" href="https://github.com/ria0304/greywater" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
     <!-- APEXNET -->
     <div class="proj-card">
       <div class="proj-eyebrow">Deep Learning · Motorsport Analytics</div>
@@ -872,42 +901,6 @@
       </div>
       <div class="proj-footer">
         <a class="proj-link" href="https://github.com/ria0304/ApexNet" target="_blank">GitHub →</a>
-      </div>
-    </div>
-
-    <!-- LUMEN -->
-    <div class="proj-card">
-      <div class="proj-eyebrow">Systems Programming · Currently Building</div>
-      <div class="proj-title">Lumen — A 32-bit x86 Operating System</div>
-      <div class="proj-desc">An operating system built from a raw boot sector up: custom BIOS bootloader and a freestanding C kernel of roughly 13,000 lines. Implements paging with per-task address spaces, a bitmap frame allocator, an interrupt-safe heap, preemptive Ring 0/Ring 3 multitasking with fork/exec, a 25-call syscall table, an ATA driver, a persistent filesystem (LumenFS v2), an ELF loader, and a text-mode GUI. A <code>make test</code> harness boots it headless in QEMU and fails on any self-test failure.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">C</span>
-        <span class="proj-tag">x86 Assembly</span>
-        <span class="proj-tag">NASM</span>
-        <span class="proj-tag">QEMU</span>
-        <span class="proj-tag">GitHub Actions</span>
-      </div>
-      <div class="proj-footer">
-        <span class="wip-badge">Currently Building</span>
-        <a class="proj-link" href="https://github.com/ria0304/Lumen" target="_blank">GitHub →</a>
-      </div>
-    </div>
-
-    <!-- 3D MANNEQUIN GARMENT VIEWER -->
-    <div class="proj-card">
-      <div class="proj-eyebrow">Computer Vision · Part of TryOn</div>
-      <div class="proj-title">3D Mannequin Garment Viewer</div>
-      <div class="proj-desc">Upload a single front-facing garment photo and a deterministic CV analyzer detects strap type and back construction, then renders the result on an interactive 3D dress-form mannequin with a matching generated back texture. An anti-hallucination gate reports "undetermined" below 75% confidence instead of inventing a back. Runs against an optional FastAPI backend and falls back to an equivalent client-side Canvas engine when it's offline.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">React</span>
-        <span class="proj-tag">TypeScript</span>
-        <span class="proj-tag">Three.js</span>
-        <span class="proj-tag">FastAPI</span>
-        <span class="proj-tag cv">Pillow · Scanline CV</span>
-        <span class="proj-tag">Tailwind CSS</span>
-      </div>
-      <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/ria0304/3d-mannequin-garment-viewer-" target="_blank">GitHub →</a>
       </div>
     </div>
 
@@ -929,21 +922,70 @@
       </div>
     </div>
 
-    <!-- GREYWATER -->
+    <!-- VELARIS -->
     <div class="proj-card">
-      <div class="proj-eyebrow">Applied ML · Sustainability</div>
-      <div class="proj-title">Greywater Testing Kit + AI</div>
-      <div class="proj-desc">Turns pH, turbidity, TDS, and a microbial screening result into a reuse verdict — garden-safe, flushing-only, or unsafe — with actionable advice. A depth-5 decision tree trained on a 1,500-sample dataset grounded in CPCB/WHO thresholds reaches 90.7% test accuracy. Ships as a zero-dependency web app (stdlib <code>http.server</code>) with a JSON prediction API and CLI. Basis of the filed greywater monitoring patent.</div>
+      <div class="proj-eyebrow">Generative AI · Currently Building</div>
+      <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
+      <div class="proj-desc">An AI-powered jewellery design tool that turns a text description, a rough sketch, or an inspiration photo into a professional concept render, a structured specification sheet (type, metal, stone, cut, style, setting, occasion), and an exportable PDF design brief a jeweller can quote and manufacture from. Built to close the gap between a customer's vague idea and a jeweller's workflow — cutting down the back-and-forth of draft revisions before a single piece is made.</div>
       <div class="proj-tags">
-        <span class="proj-tag ml">Decision Tree</span>
-        <span class="proj-tag">Python</span>
-        <span class="proj-tag">scikit-learn</span>
-        <span class="proj-tag">Pandas</span>
-        <span class="proj-tag">REST API</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag gen">Generative AI · Image Generation</span>
+        <span class="proj-tag">Spec Sheet Generation</span>
+        <span class="proj-tag">PDF Export</span>
       </div>
       <div class="proj-footer">
-        <span class="idf-badge">Patent Application Filed</span>
-        <a class="proj-link" href="https://github.com/ria0304/greywater" target="_blank">GitHub →</a>
+        <span class="wip-badge">Currently Building</span>
+        <a class="proj-link" href="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- FLOWWRITE -->
+    <div class="proj-card">
+      <div class="proj-eyebrow">NLP Pipeline · Text Style Transfer</div>
+      <div class="proj-title">FlowWrite — NLP Text Style Transfer Pipeline</div>
+      <div class="proj-desc">Multi-pass NLP pipeline that rewrites text to match natural human writing patterns. Combines spaCy chunking, SBERT semantic similarity for candidate ranking, and a local LLM (llama3.2 via Ollama) for rewriting. A custom Human Likeness Score (HLS) evaluates outputs across burstiness, readability, coherence, and semantic preservation.</div>
+      <div class="proj-tags">
+        <span class="proj-tag nlp">NLP Pipeline</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">spaCy</span>
+        <span class="proj-tag">SBERT</span>
+        <span class="proj-tag">Ollama · llama3.2</span>
+        <span class="proj-tag cloud">AWS S3 · CloudFront</span>
+      </div>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/ria0304/flowWrite--ai-text-humanizer" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <!-- BOOKNEST -->
+    <div class="proj-card">
+      <div class="proj-eyebrow">Full-Stack</div>
+      <div class="proj-title">BookNest+</div>
+      <div class="proj-desc">Smart personalized reading platform to discover, track, and manage books — powered by mood, behavior, and reading analytics. Features a custom DRPA recommendation engine, EPUB reader, book-to-movie mode via TMDB.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">Node.js</span>
+        <span class="proj-tag">Docker</span>
+        <span class="proj-tag ai">Recommendation AI</span>
+      </div>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/ria0304/BOOKNEST-" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-eyebrow">Machine Learning</div>
+      <div class="proj-title">Smart Resale</div>
+      <div class="proj-desc">ML model predicting fair resale prices for used phones and laptops. Covers data preprocessing, feature engineering, and model evaluation with Pandas, NumPy, and Scikit-learn.</div>
+      <div class="proj-tags">
+        <span class="proj-tag ml">Machine Learning</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">Scikit-learn</span>
+      </div>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/ria0304/smart-resale" target="_blank">GitHub →</a>
       </div>
     </div>
 
