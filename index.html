@@ -352,6 +352,15 @@
     }
     .idf-badge::before { content: "◌"; font-size: 0.5rem; }
 
+    .accepted-badge {
+      font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
+      background: rgba(26,102,69,0.1); border: 1px solid rgba(168,217,187,0.6); color: #1a6645;
+      font-weight: 600; letter-spacing: 0.02em;
+      display: flex; align-items: center; gap: 0.3rem;
+      width: fit-content;
+    }
+    .accepted-badge::before { content: "✓"; font-size: 0.6rem; }
+
     .proj-footer { display: flex; align-items: center; gap: 0.7rem; margin-top: auto; flex-wrap: wrap; }
     .live-badge {
       font-size: 0.65rem; padding: 0.2rem 0.7rem; border-radius: 30px;
@@ -462,6 +471,10 @@
       margin-top: 0.35rem; width: fit-content;
     }
     .patent-status::before { content: "◌"; font-size: 0.5rem; }
+    .patent-status.accepted {
+      background: rgba(26,102,69,0.1); border-color: rgba(168,217,187,0.6); color: #1a6645;
+    }
+    .patent-status.accepted::before { content: "✓"; font-size: 0.6rem; }
 
     .learning-box {
       background: rgba(255,255,255,0.65);
@@ -595,7 +608,7 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a third-year Computer Science & Data Science student passionate about the fusion of data, design, and intelligent systems. I've completed virtual experience programs at Deloitte, Quantium, and J.P. Morgan, gaining exposure to how real-world teams turn raw data into actionable decisions.</p>
-      <p>From mood-based reading platforms to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. I've built WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside TryOn, a garment cutout and outfit-building tool, and I'm currently building Velaris, an AI jewellery design tool, all unified under Atelier, a fashion tech hub linking all of them.</p>
+      <p>From mood-based reading platforms to fraud detection with graph neural networks, I love building end-to-end solutions that push the boundaries of what a student project can be. I've built WYA and Luna — a two-repo AI fashion platform with a production FastAPI backend and a conversational React frontend — alongside TryOn, a garment cutout and outfit-building tool, and I'm currently building Velaris, an AI jewellery design tool, all unified under Atelier, a fashion tech hub linking all of them. The WYA paper has been accepted as a full paper at EDGEI 2026.</p>
     </div>
     <div>
       <div class="skill-block">
@@ -708,7 +721,7 @@
     </div>
 
     <!-- WYA -->
-    <div class="proj-card" data-learning="IDF for WYA accepted by MUJ E-Cell; patent filing awaiting fee payment. WYA research paper submitted to EDGEI.">
+    <div class="proj-card" data-learning="WYA paper accepted as a Full Paper at EDGEI 2026 (Springer LNNS, Scopus-indexed). IDF for WYA accepted by MUJ E-Cell; patent filing awaiting fee payment.">
       <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision · Fully Built</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
       <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
@@ -727,7 +740,7 @@
         <span class="live-badge">Fully Built</span>
         <span class="wip-badge">Backend Paused (Cost Mgmt)</span>
         <span class="idf-badge">IDF Accepted (E-Cell)</span>
-        <span class="idf-badge">Paper Submitted · EDGEI</span>
+        <span class="accepted-badge">Paper Accepted · EDGEI 2026 (Springer LNNS)</span>
         <a class="proj-link" href="https://github.com/ria0304/WYA-Whats-Your-Aesthetic" target="_blank">GitHub →</a>
       </div>
     </div>
@@ -1017,6 +1030,15 @@
     <h3>Research & IP</h3>
     <div class="patent-item">
       <div>
+        <div class="patent-title">WYA — From Pixels to Wardrobe: A Deep Learning and Computer Vision Pipeline for Automated Garment Analysis</div>
+        <div class="patent-meta">
+          Full Paper &nbsp;·&nbsp; <span>EDGEI 2026</span>, SIUC, Malaysia &nbsp;·&nbsp; Springer Lecture Notes in Networks and Systems (LNNS), Scopus-indexed
+        </div>
+        <div class="patent-status accepted">Accepted · Camera-Ready Pending</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
         <div class="patent-title">WYA — What's Your Aesthetic: AI-Powered Personal Styling and Wardrobe Optimization</div>
         <div class="patent-meta">
           IDF Accepted &nbsp;·&nbsp; Ref. <span>TEMP/E-1/134770/2026-DEL</span> &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
@@ -1122,7 +1144,7 @@
     const fixedLearnings = [
       { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' },
       { text: 'Building VisualGuard-LVLM.', link: 'https://github.com/ria0304/VisualGuard-LVLM' },
-      { text: 'Papers submitted: TryOn to ANTIC 2026 and FairFaceGuard to IMPACT26 (BIT Mesra). Working on conference papers for HydroDrive-DQN, VisualGuard-LVLM, and Velaris.' }
+      { text: 'Papers: WYA accepted at EDGEI 2026. Submitted: TryOn to ANTIC 2026 and FairFaceGuard to IMPACT26 (BIT Mesra). Working on conference papers for HydroDrive-DQN, VisualGuard-LVLM, and Velaris.' }
     ];
     fixedLearnings.forEach(entry => {
       const item = document.createElement('div');
