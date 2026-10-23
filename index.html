@@ -688,7 +688,7 @@
     </div>
 
     <!-- WYA -->
-    <div class="proj-card" data-learning="WYA paper accepted as a Full Paper at EDGEI 2026 (Springer LNNS, Scopus-indexed). IDF for WYA accepted by MUJ E-Cell; patent filing fee paid, filing in process.">
+    <div class="proj-card" data-learning="Built WYA end to end: a two-tier garment classification pipeline on AWS SageMaker with FashionCLIP, served by a production FastAPI backend with 47 automated tests.">
       <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision · Fully Built</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
       <div class="proj-desc">Full-stack wardrobe intelligence platform. Users upload garments and a two-tier pipeline — AWS SageMaker (FashionCLIP) for zero-shot classification + a local rule-based fabric classifier — auto-tags every item with category, color, fabric, and pattern. A Style DNA quiz maps aesthetic preferences to a style vector that drives outfit matching, gap analysis, and sustainability scoring. Production FastAPI backend on AWS EC2 behind CloudFront, rate-limited AI endpoints, JWT auth, and 47 automated tests.</div>
@@ -897,7 +897,6 @@
       </div>
       <div class="proj-footer">
         <span class="wip-badge">Currently Building</span>
-        <span class="wip-badge">Paper in Progress</span>
         <a class="proj-link" href="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design" target="_blank">GitHub →</a>
       </div>
     </div>
@@ -1163,7 +1162,11 @@
     // Fixed learnings not tied to a project card in the grid above.
     // Add/remove entries here directly.
     const fixedLearnings = [
-      { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' }
+      { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' },
+      { text: 'Building Velaris, a tool that turns a text prompt, rough sketch or inspiration photo into a concept render, a structured spec sheet and a PDF design brief a jeweller can quote from.', link: 'https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design' },
+      { text: 'Fitting garments onto a 3D mannequin using MediaPipe BlazePose landmarks and thin-plate-spline warping, and testing against the real CV models instead of mocks.', link: 'https://github.com/ria0304/TryOn' },
+      { text: 'Using counterfactual tests, bootstrap CIs and permutation tests to check whether a deepfake detector\'s skin-tone gap is really caused by lighting.', link: 'https://github.com/ria0304/FairFaceGuard' },
+      { text: 'Exploring training-free, decoding-time methods that reduce object hallucination in vision-language models by scoring tokens against image evidence.', link: 'https://github.com/ria0304/VisualGuard-LVLM' }
     ];
     fixedLearnings.forEach(entry => {
       const item = document.createElement('div');
