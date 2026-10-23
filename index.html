@@ -463,6 +463,8 @@
     .patent-title { font-size: 0.84rem; color: var(--ink); font-weight: 500; margin-bottom: 0.25rem; line-height: 1.4; }
     .patent-meta { font-size: 0.72rem; color: var(--ink-3); font-weight: 300; line-height: 1.5; }
     .patent-meta span { color: var(--red); font-weight: 500; }
+    .patent-meta a { color: var(--red); text-decoration: none; font-weight: 500; }
+    .patent-meta a:hover { text-decoration: underline; }
     .patent-status {
       display: inline-flex; align-items: center; gap: 0.3rem;
       font-size: 0.62rem; padding: 0.15rem 0.6rem; border-radius: 30px;
@@ -877,7 +879,7 @@
       </div>
       <div class="proj-footer">
         <span class="wip-badge">Currently Building</span>
-        <span class="wip-badge">Paper in Progress</span>
+        <span class="idf-badge">Paper Submitted · ICIPCN 2027</span>
         <a class="proj-link" href="https://github.com/ria0304/VisualGuard-LVLM" target="_blank">GitHub →</a>
       </div>
     </div>
@@ -1039,6 +1041,15 @@
     </div>
     <div class="patent-item">
       <div>
+        <div class="patent-title">VisualGuard — Evidence-Guided Decoding for Reducing Object Hallucination in Large Vision-Language Models</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span> &nbsp;·&nbsp; <a href="https://icipcn.com/2027/" target="_blank">icipcn.com/2027</a>
+        </div>
+        <div class="patent-status">Submitted</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
         <div class="patent-title">WYA — What's Your Aesthetic: AI-Powered Personal Styling and Wardrobe Optimization</div>
         <div class="patent-meta">
           IDF Accepted &nbsp;·&nbsp; Ref. <span>TEMP/E-1/134770/2026-DEL</span> &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
@@ -1144,7 +1155,7 @@
     const fixedLearnings = [
       { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' },
       { text: 'Building VisualGuard-LVLM.', link: 'https://github.com/ria0304/VisualGuard-LVLM' },
-      { text: 'Papers: WYA accepted at EDGEI 2026. Submitted: TryOn to ANTIC 2026 and FairFaceGuard to IMPACT26 (BIT Mesra). Working on conference papers for HydroDrive-DQN, VisualGuard-LVLM, and Velaris.' }
+      { text: 'Papers: WYA accepted at EDGEI 2026. Submitted: TryOn to ANTIC 2026, FairFaceGuard to IMPACT26 (BIT Mesra), and VisualGuard-LVLM to ICIPCN 2027. Working on conference papers for HydroDrive-DQN and Velaris.' }
     ];
     fixedLearnings.forEach(entry => {
       const item = document.createElement('div');
