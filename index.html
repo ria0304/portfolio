@@ -377,45 +377,6 @@
     }
     .proj-link:hover { border-bottom-color: currentColor; }
 
-    .gh-live-note {
-      font-size: 0.8rem; color: var(--ink-3); font-weight: 300;
-      margin: -2rem 0 2rem;
-    }
-    .gh-stats-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.2rem;
-    }
-    .gh-stat-card {
-      background: rgba(255,255,255,0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.6);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.5rem;
-      text-align: center;
-    }
-    .gh-stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.2rem; color: var(--red);
-      line-height: 1; margin-bottom: 0.4rem;
-    }
-    .gh-stat-label {
-      font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--ink-3); font-weight: 600;
-    }
-    .gh-stat-langs { text-align: left; }
-    .gh-stat-langs .gh-stat-label { margin-bottom: 0.7rem; }
-    .gh-stat-langs .tag-cloud { justify-content: flex-start; }
-    .gh-repo-updated {
-      font-size: 0.68rem; color: var(--ink-3); font-weight: 400;
-      margin-top: 0.2rem;
-    }
-    .gh-loading, .gh-error {
-      font-size: 0.85rem; color: var(--ink-3); font-weight: 300;
-      padding: 1.5rem 0; grid-column: 1 / -1;
-    }
-    .gh-error { color: var(--red-dark); }
-
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.8rem; }
     .edu-card {
       background: rgba(255,255,255,0.65);
@@ -477,6 +438,10 @@
       background: rgba(26,102,69,0.1); border-color: rgba(168,217,187,0.6); color: #1a6645;
     }
     .patent-status.accepted::before { content: "✓"; font-size: 0.6rem; }
+    .patent-status.progress {
+      background: rgba(74,45,138,0.07); border-color: rgba(196,184,232,0.6); color: #4a2d8a;
+    }
+    .patent-status.progress::before { content: "◐"; font-size: 0.5rem; }
 
     .learning-box {
       background: rgba(255,255,255,0.65);
@@ -573,7 +538,7 @@
       <button onclick="showSection('about')" id="nav-about">About</button>
       <button onclick="showSection('experience')" id="nav-experience">Experience</button>
       <button onclick="showSection('projects')" id="nav-projects">Projects</button>
-      <button onclick="showSection('github')" id="nav-github">GitHub</button>
+      <button onclick="showSection('research')" id="nav-research">Research &amp; IP</button>
       <button onclick="showSection('education')" id="nav-education">Education</button>
       <button onclick="showSection('contact')" id="nav-contact">Contact</button>
     </div>
@@ -990,21 +955,97 @@
   </div>
 </section>
 
-<!-- GITHUB ACTIVITY -->
-<section id="github">
-  <h2 class="sh">GitHub <em>Activity</em></h2>
-  <p class="gh-live-note">Live from the GitHub API — updates automatically as I push new code.</p>
+<!-- RESEARCH & IP -->
+<section id="research">
+  <h2 class="sh">Research <em>&amp; IP</em></h2>
 
-  <div class="gh-stats-grid" id="gh-stats-grid">
-    <div class="gh-stat-card"><div class="gh-stat-num" id="gh-stat-repos">—</div><div class="gh-stat-label">Repositories</div></div>
-    <div class="gh-stat-card"><div class="gh-stat-num" id="gh-stat-stars">—</div><div class="gh-stat-label">Total Stars ⭐</div></div>
-    <div class="gh-stat-card"><div class="gh-stat-num" id="gh-stat-forks">—</div><div class="gh-stat-label">Total Forks</div></div>
-    <div class="gh-stat-card gh-stat-langs"><div class="gh-stat-label">Top Languages</div><div class="tag-cloud" id="gh-stat-lang-tags"></div></div>
+  <div class="patent-box">
+    <h3>Research Papers</h3>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">WYA — From Pixels to Wardrobe: A Deep Learning and Computer Vision Pipeline for Automated Garment Analysis</div>
+        <div class="patent-meta">
+          Full Paper &nbsp;·&nbsp; <span>EDGEI 2026</span>, SIUC, Malaysia &nbsp;·&nbsp; Springer Lecture Notes in Networks and Systems (LNNS), Scopus-indexed
+        </div>
+        <div class="patent-status accepted">Accepted · Camera-Ready Pending</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">TryOn: Decoupling Fast Outfit Composition from Photorealistic Garment Rendering</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>ANTIC 2026</span>
+        </div>
+        <div class="patent-status">Submitted</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">FairFaceGuard — Deepfake Detection Under Skin-Tone and Lighting Variations</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>IMPACT26</span>, BIT Mesra
+        </div>
+        <div class="patent-status">Submitted</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">VisualGuard — Evidence-Guided Decoding for Reducing Object Hallucination in Large Vision-Language Models</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span>
+        </div>
+        <div class="patent-status">Submitted</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">HydroDrive-DQN — Adaptive FCEV–Hydrogen Co-Optimization</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>IRSES 2027</span>
+        </div>
+        <div class="patent-status progress">In Progress · Deadline 30 Oct 2026</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">Velaris — From Inspiration to Jewellery Design</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>ICOIED 2027</span>, NIT Uttarakhand
+        </div>
+        <div class="patent-status progress">In Progress · Deadline 15 Jan 2027</div>
+      </div>
+    </div>
   </div>
 
-  <div class="section-divider" style="margin-top:2.2rem;">Recent Repositories</div>
-  <div class="proj-grid" id="gh-recent-grid">
-    <div class="gh-loading">Loading repositories from GitHub…</div>
+  <div class="patent-box">
+    <h3>Patents &amp; IDFs</h3>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">WYA — What's Your Aesthetic: AI-Powered Personal Styling and Wardrobe Optimization</div>
+        <div class="patent-meta">
+          IDF Accepted &nbsp;·&nbsp; Ref. <span>TEMP/E-1/134770/2026-DEL</span> &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
+        </div>
+        <div class="patent-status">Fee Paid · Filing in Process</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">TryOn — Adaptive Warping Method for Garment Fitting on Virtual Mannequins</div>
+        <div class="patent-meta">
+          Draft Submitted &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
+        </div>
+        <div class="patent-status progress">Draft Submitted</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">Greywater</div>
+        <div class="patent-meta">
+          Draft Submitted &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
+        </div>
+        <div class="patent-status progress">Draft Submitted</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1026,37 +1067,6 @@
     <div class="cert-item">Google Data Analytics</div>
     <div class="cert-item">Meta Data Analyst with GenAI</div>
     <div class="cert-item">Programming in Java — NPTEL</div>
-  </div>
-
-  <div class="patent-box">
-    <h3>Research & IP</h3>
-    <div class="patent-item">
-      <div>
-        <div class="patent-title">WYA — From Pixels to Wardrobe: A Deep Learning and Computer Vision Pipeline for Automated Garment Analysis</div>
-        <div class="patent-meta">
-          Full Paper &nbsp;·&nbsp; <span>EDGEI 2026</span>, SIUC, Malaysia &nbsp;·&nbsp; Springer Lecture Notes in Networks and Systems (LNNS), Scopus-indexed
-        </div>
-        <div class="patent-status accepted">Accepted · Camera-Ready Pending</div>
-      </div>
-    </div>
-    <div class="patent-item">
-      <div>
-        <div class="patent-title">VisualGuard — Evidence-Guided Decoding for Reducing Object Hallucination in Large Vision-Language Models</div>
-        <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span> &nbsp;·&nbsp; <a href="https://icipcn.com/2027/" target="_blank">icipcn.com/2027</a>
-        </div>
-        <div class="patent-status">Submitted</div>
-      </div>
-    </div>
-    <div class="patent-item">
-      <div>
-        <div class="patent-title">WYA — What's Your Aesthetic: AI-Powered Personal Styling and Wardrobe Optimization</div>
-        <div class="patent-meta">
-          IDF Accepted &nbsp;·&nbsp; Ref. <span>TEMP/E-1/134770/2026-DEL</span> &nbsp;·&nbsp; Co-inventor with <span>Mitakshi Sinha</span> &nbsp;·&nbsp; Manipal University Jaipur, 2026
-        </div>
-        <div class="patent-status">Fee Paid · Filing in Process</div>
-      </div>
-    </div>
   </div>
 
   <div class="learning-box">
@@ -1153,9 +1163,7 @@
     // Fixed learnings not tied to a project card in the grid above.
     // Add/remove entries here directly.
     const fixedLearnings = [
-      { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' },
-      { text: 'Building VisualGuard-LVLM.', link: 'https://github.com/ria0304/VisualGuard-LVLM' },
-      { text: 'Papers: WYA accepted at EDGEI 2026. Submitted: TryOn to ANTIC 2026, FairFaceGuard to IMPACT26 (BIT Mesra), and VisualGuard-LVLM to ICIPCN 2027. Working on conference papers for HydroDrive-DQN and Velaris.' }
+      { text: 'Building Lumen.', link: 'https://github.com/ria0304/Lumen' }
     ];
     fixedLearnings.forEach(entry => {
       const item = document.createElement('div');
@@ -1174,83 +1182,9 @@
     });
   }
 
-  // ---- GitHub API: drives the GitHub Activity section (stats + recent repos) ----
-  const GH_USERNAME = 'ria0304';
-
-  function ghRecentCard(repo) {
-    const desc = repo.description ? repo.description : 'No description provided.';
-    const lang = repo.language;
-    const updated = new Date(repo.pushed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    return `
-      <div class="proj-card">
-        <div class="proj-eyebrow">${lang ? lang : 'GitHub'}</div>
-        <div class="proj-title">${repo.name}</div>
-        <div class="proj-desc">${desc}</div>
-        <div class="proj-tags">
-          ${lang ? `<span class="proj-tag">${lang}</span>` : ''}
-          ${repo.stargazers_count > 0 ? `<span class="proj-tag">★ ${repo.stargazers_count}</span>` : ''}
-          ${repo.forks_count > 0 ? `<span class="proj-tag">⑂ ${repo.forks_count}</span>` : ''}
-        </div>
-        <div class="proj-footer" style="flex-direction:column; align-items:flex-start; gap:0.2rem;">
-          <a class="proj-link" href="${repo.html_url}" target="_blank">GitHub →</a>
-          <span class="gh-repo-updated">Updated ${updated}</span>
-        </div>
-      </div>`;
-  }
-
-  async function loadGitHubData() {
-    const recentGrid = document.getElementById('gh-recent-grid');
-
-    let repos;
-    try {
-      const res = await fetch(`https://api.github.com/users/${GH_USERNAME}/repos?per_page=100&sort=updated`);
-      if (!res.ok) throw new Error('GitHub API request failed: ' + res.status);
-      repos = await res.json();
-      if (!Array.isArray(repos)) throw new Error('Unexpected GitHub API response');
-    } catch (err) {
-      console.warn('GitHub fetch failed:', err);
-      if (recentGrid) {
-        recentGrid.innerHTML = '<div class="gh-error">Couldn\'t load GitHub data right now — likely a rate limit or network issue. Refresh in a bit.</div>';
-      }
-      return;
-    }
-
-    const ownRepos = repos.filter(r => !r.fork);
-
-    const totalStars = ownRepos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
-    const totalForks = ownRepos.reduce((sum, r) => sum + (r.forks_count || 0), 0);
-
-    const langCounts = {};
-    ownRepos.forEach(r => {
-      if (r.language) langCounts[r.language] = (langCounts[r.language] || 0) + 1;
-    });
-    const topLangs = Object.entries(langCounts).sort((a, b) => b[1] - a[1]).slice(0, 6);
-
-    const repoCountEl = document.getElementById('gh-stat-repos');
-    const starsEl = document.getElementById('gh-stat-stars');
-    const forksEl = document.getElementById('gh-stat-forks');
-    const langTagsEl = document.getElementById('gh-stat-lang-tags');
-    if (repoCountEl) repoCountEl.textContent = ownRepos.length;
-    if (starsEl) starsEl.textContent = totalStars;
-    if (forksEl) forksEl.textContent = totalForks;
-    if (langTagsEl) {
-      langTagsEl.innerHTML = topLangs.length
-        ? topLangs.map(([lang, count]) => `<span class="tag">${lang} (${count})</span>`).join('')
-        : '<span class="tag">No language data</span>';
-    }
-
-    if (recentGrid) {
-      const recent = [...ownRepos].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 6);
-      recentGrid.innerHTML = recent.length
-        ? recent.map(ghRecentCard).join('')
-        : '<div class="gh-loading">No public repositories found.</div>';
-    }
-  }
-
   window.addEventListener('load', () => {
     showSection('hero');
     syncLearningsFromProjects();
-    loadGitHubData();
   });
 </script>
 </body>
