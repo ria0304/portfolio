@@ -690,6 +690,82 @@
       .hero-stats { margin-top: -0.6rem; }
     }
 
+    /* ---------- round 2 ---------- */
+    @keyframes fadeOut { to { opacity: 0; transform: scale(0.92); } }
+    @keyframes leave   { to { opacity: 0; transform: translateY(-12px); } }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @keyframes sheen   { 0% { left: -60%; } 60%, 100% { left: 130%; } }
+
+    section.leaving { animation: leave 0.18s ease-in forwards; }
+
+    /* heading word-by-word */
+    .sh .w {
+      display: inline-block; margin-right: 0.26em;
+      animation: fadeUp 0.7s var(--ease-out) backwards;
+      animation-delay: calc(var(--w, 0) * 90ms + 100ms);
+    }
+
+    /* tech marquee */
+    .marquee {
+      margin-top: 2rem; overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+              mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+    .marquee-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track span {
+      white-space: nowrap; margin-right: 0.6rem;
+      padding: 0.3rem 1rem; border-radius: 40px;
+      font-size: 0.74rem; font-weight: 500; color: var(--ink-2);
+      background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.7);
+    }
+    .marquee-track span::before { content: "✦"; color: var(--red); margin-right: 0.5rem; font-size: 0.6rem; }
+
+    /* project filter chips */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: -1.4rem 0 2rem; }
+    .chip {
+      font-family: 'DM Sans', sans-serif; font-size: 0.76rem; font-weight: 600;
+      padding: 0.45rem 1rem; border-radius: 40px; cursor: pointer;
+      background: rgba(255,255,255,0.55); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.7); color: var(--ink-2);
+      transition: all 0.25s var(--ease-out);
+    }
+    .chip small { opacity: 0.6; font-weight: 500; margin-left: 0.2rem; }
+    .chip:hover { transform: translateY(-2px); border-color: var(--red); color: var(--red-dark); }
+    .chip.active { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 6px 16px rgba(184,64,54,0.28); }
+    .f-in  { animation: fadeUp 0.55s var(--ease-out) backwards; animation-delay: var(--fd, 0ms); }
+    .f-out { animation: fadeOut 0.25s ease-in forwards; }
+
+    /* back-to-top with progress ring */
+    .to-top {
+      position: fixed; right: 22px; bottom: 22px; width: 48px; height: 48px;
+      border: none; border-radius: 50%; cursor: pointer; z-index: 250;
+      display: grid; place-items: center; color: var(--red); font-size: 1.1rem; font-weight: 700;
+      background: rgba(255,255,255,0.72); backdrop-filter: blur(12px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      opacity: 0; transform: translateY(16px) scale(0.8); pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s var(--ease-out);
+    }
+    .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+    .to-top.show:hover { transform: translateY(-3px); }
+    .to-top svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+    .to-top .ring-bg { fill: none; stroke: rgba(184,64,54,0.15); stroke-width: 3; }
+    .to-top .ring { fill: none; stroke: var(--red); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 125.66; stroke-dashoffset: 125.66; }
+    .to-top span { position: relative; }
+
+    .floaties { transition: transform 0.5s var(--ease-out); }
+
+    .cta-banner { position: relative; overflow: hidden; }
+    .cta-banner::before {
+      content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.09), transparent);
+      transform: skewX(-20deg); animation: sheen 5s ease-in-out infinite; pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track, .cta-banner::before { animation: none !important; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
@@ -704,6 +780,10 @@
 
 <div id="progress"></div>
 <div class="cursor-glow" aria-hidden="true"></div>
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 48 48"><circle class="ring-bg" cx="24" cy="24" r="20"/><circle class="ring" id="toTopRing" cx="24" cy="24" r="20"/></svg>
+  <span>↑</span>
+</button>
 
 <div class="nav-wrap">
   <nav>
@@ -760,6 +840,7 @@
     <span>🎓 B.Tech CS + DS @ Manipal University Jaipur</span>
     <span>🔭 3rd Year · 2024–2028</span>
   </div>
+  <div class="marquee fu" style="--i:9" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
 </section>
 
 <!-- ABOUT -->
@@ -844,6 +925,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <h2 class="sh">Featured <em>Projects</em></h2>
+  <div class="filter-bar" id="filterBar"></div>
   <div class="proj-grid">
 
     <!-- ATELIER — the one flagship rectangular box -->
@@ -985,7 +1067,7 @@
     </div>
 
     <!-- HYDRODRIVE-DQN -->
-    <div class="proj-card">
+    <div class="proj-card" data-cat="ml">
       <div class="proj-eyebrow">Reinforcement Learning · Clean Energy</div>
       <div class="proj-title">HydroDrive-DQN — Adaptive FCEV–Hydrogen Co-Optimization</div>
       <div class="proj-desc">Resilience-aware pipeline coupling fuel-cell EV energy management with hydrogen infrastructure planning. NSGA-II sets system-level priorities, a from-scratch NumPy DQN allocates fuel-cell vs battery power using live hydrogen and renewable context, a genetic algorithm sizes the supply chain, and a 10,000-scenario Monte Carlo run stress-tests demand satisfaction. Benchmarked against rule-based, thermostat, standard-DQN, and MILP-style baselines across WLTP, NEDC, US06, and UDDS cycles, with 17 auto-generated figures and a Flask dashboard.</div>
@@ -1044,7 +1126,7 @@
     </div>
 
     <!-- APEXNET -->
-    <div class="proj-card">
+    <div class="proj-card" data-cat="ml">
       <div class="proj-eyebrow">Deep Learning · Motorsport Analytics</div>
       <div class="proj-title">ApexNet — F1 Overtaking Prediction</div>
       <div class="proj-desc">Predicts whether the driver starting behind a grid-adjacent rival finishes ahead. Trains and compares five architectures (CNN, GAT, LSTM, CNN+LSTM, and a proposed CNN+GAT) on real f1db results from 2014 onward, with a leakage-checked race-level split, held-out confusion matrix, and feature-group ablation. A live replay dashboard checks predictions against what actually happened — no synthetic telemetry anywhere in the training pipeline.</div>
@@ -1416,7 +1498,19 @@
     });
   }
 
+  let swapT;
   function showSection(id) {
+    const cur = document.querySelector('section.active');
+    const next = document.getElementById(id);
+    if (cur && next && cur !== next && !reduce) {
+      clearTimeout(swapT);
+      cur.classList.add('leaving');
+      swapT = setTimeout(() => { cur.classList.remove('leaving'); swapSection(id); }, 180);
+    } else {
+      swapSection(id);
+    }
+  }
+  function swapSection(id) {
     document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
     const sec = document.getElementById(id);
@@ -1509,6 +1603,11 @@
     const h = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(scrollY / h, 1) : 0) + ')';
     navWrap.classList.toggle('scrolled', scrollY > 8);
+    const tb = document.getElementById('toTop'), ring = document.getElementById('toTopRing');
+    if (tb && ring) {
+      tb.classList.toggle('show', scrollY > 400);
+      ring.style.strokeDashoffset = 125.66 * (1 - (h > 0 ? Math.min(scrollY / h, 1) : 0));
+    }
   }
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', movePill);
@@ -1559,6 +1658,93 @@
     });
   } else if (glow) {
     glow.remove();
+  }
+
+  /* ---------- round 2 features ---------- */
+  document.getElementById('toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // heading words
+  document.querySelectorAll('.sh').forEach(h => {
+    let i = 0;
+    [...h.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/\s+/).filter(Boolean).forEach(w => {
+          const s = document.createElement('span');
+          s.className = 'w'; s.style.setProperty('--w', i++); s.textContent = w;
+          frag.appendChild(s);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1) {
+        n.classList.add('w'); n.style.setProperty('--w', i++);
+      }
+    });
+  });
+
+  // marquee built from the Tech Stack tags (duplicated for a seamless loop)
+  (function () {
+    const track = document.getElementById('marqueeTrack');
+    const names = [...document.querySelectorAll('#about .skill-block:first-child .tag')].map(t => t.textContent);
+    [...names, ...names].forEach(n => { const s = document.createElement('span'); s.textContent = n; track.appendChild(s); });
+  })();
+
+  // project filter
+  (function () {
+    const cards = [...document.querySelectorAll('#projects .proj-card')];
+    // Each project lives in exactly ONE tab (plus "All"). Matched by title prefix.
+    // Edit this map to move a project. Tabs: ml, cv, fs, sys, research
+    const catMap = {
+      'Atelier': 'fs', 'WYA': 'fs', 'Luna': 'fs', 'Sports': 'fs', 'BookNest': 'fs', 'Velaris': 'fs',
+      'Bitcoin': 'ml', 'ApexNet': 'ml', 'Smart Resale': 'ml',
+      'FlowWrite': 'nlp', 'PaperPilot': 'nlp',
+      'TryOn': 'cv', '3D Mannequin': 'cv',
+      'Lumen': 'sys',
+      'FairFaceGuard': 'research', 'VisualGuard': 'research', 'HydroDrive': 'research'
+    };
+    cards.forEach(c => {
+      const t = c.querySelector('.proj-title').textContent.trim();
+      const key = Object.keys(catMap).find(k => t.startsWith(k));
+      c.dataset.cat = key ? catMap[key] : '';
+    });
+    const bar = document.getElementById('filterBar');
+    [['all', 'All'], ['ml', 'AI & ML'], ['nlp', 'NLP'], ['cv', 'Computer Vision'], ['fs', 'Full-Stack'], ['sys', 'Systems'], ['research', 'Research']].forEach(([k, label], i) => {
+      const n = k === 'all' ? cards.length : cards.filter(c => c.dataset.cat.split(' ').includes(k)).length;
+      const b = document.createElement('button');
+      b.className = 'chip' + (i ? '' : ' active');
+      b.innerHTML = label + ' <small>' + n + '</small>';
+      b.addEventListener('click', () => {
+        bar.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        let j = 0;
+        cards.forEach(c => {
+          const match = k === 'all' || c.dataset.cat.split(' ').includes(k);
+          const shown = c.style.display !== 'none';
+          if (match) {
+            c.style.display = '';
+            c.classList.remove('f-out', 'f-in');
+            void c.offsetWidth;
+            c.style.setProperty('--fd', (j++ * 50) + 'ms');
+            c.classList.add('f-in');
+            setTimeout(() => c.classList.remove('f-in'), 900);
+          } else if (shown) {
+            c.classList.add('f-out');
+            setTimeout(() => {
+              if (c.classList.contains('f-out')) { c.style.display = 'none'; c.classList.remove('f-out'); }
+            }, 260);
+          }
+        });
+      });
+      bar.appendChild(b);
+    });
+  })();
+
+  // hero parallax
+  if (fine && !reduce) {
+    const fl = document.querySelector('.floaties');
+    document.getElementById('hero').addEventListener('mousemove', e => {
+      const x = (e.clientX / innerWidth - 0.5) * 28, y = (e.clientY / innerHeight - 0.5) * 28;
+      fl.style.transform = 'translate(' + (-x) + 'px,' + (-y) + 'px)';
+    });
   }
 
   window.addEventListener('load', () => {
