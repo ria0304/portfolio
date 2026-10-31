@@ -285,7 +285,7 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.08);
     }
 
-    /* ATELIER — the single flagship-style rectangular card, sits above the square project grid */
+    
     .proj-card.atelier {
       grid-column: span 2;
       background: linear-gradient(135deg, rgba(46,20,40,0.93) 0%, rgba(38,28,58,0.95) 50%, rgba(18,42,46,0.93) 100%);
@@ -528,9 +528,7 @@
       .cta-banner h3 { font-size: 1.3rem; }
     }
 
-    /* ==========================================================
-       ANIMATION LAYER  (background gradient untouched)
-       ========================================================== */
+  
 
     @keyframes fadeUp   { from { opacity: 0; transform: translateY(22px); } }
     @keyframes lineUp   { from { transform: translateY(110%); } }
@@ -554,7 +552,7 @@
       50%      { transform: scale(1.35) rotate(90deg); }
     }
 
-    /* scroll progress + nav */
+    
     #progress {
       position: fixed; top: 0; left: 0; width: 100%; height: 3px;
       background: linear-gradient(90deg, var(--red), var(--gold));
@@ -579,7 +577,7 @@
       opacity: 0; pointer-events: none;
     }
 
-    /* cursor glow (desktop only) */
+    
     .cursor-glow {
       position: fixed; top: 0; left: 0; width: 400px; height: 400px;
       border-radius: 50%; pointer-events: none; z-index: 1;
@@ -588,7 +586,7 @@
     }
     section, footer { position: relative; z-index: 2; }
 
-    /* section headings */
+    
     .sh::after {
       content: ''; display: block; height: 3px; width: 0;
       margin-top: 0.7rem; border-radius: 2px;
@@ -596,7 +594,7 @@
       animation: growBar 0.8s 0.35s var(--ease-out) forwards;
     }
 
-    /* hero entrance */
+  
     #hero { position: relative; }
     .fu { animation: fadeUp 0.85s var(--ease-out) backwards; animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
     .line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
@@ -636,7 +634,7 @@
     .floaties span:nth-child(even) { color: var(--gold); opacity: 0.3; }
     #hero > *:not(.floaties) { position: relative; z-index: 1; }
 
-    /* pills & tags pop */
+  
     .pill, .tag {
       animation: popIn 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) backwards;
       animation-delay: calc(var(--ti, 0) * 40ms + 350ms);
@@ -644,7 +642,7 @@
     }
     .pill:hover, .tag:hover { transform: translateY(-3px) scale(1.06); }
 
-    /* buttons: shine sweep */
+
     .btn, .btn-linkedin, .btn-resume { position: relative; overflow: hidden; }
     .btn::after, .btn-linkedin::after, .btn-resume::after {
       content: ''; position: absolute; top: 0; left: -80%; width: 50%; height: 100%;
@@ -653,14 +651,14 @@
     }
     .btn:hover::after, .btn-linkedin:hover::after, .btn-resume:hover::after { left: 130%; }
 
-    /* badges */
+
     .live-badge::before {
       content: ''; width: 6px; height: 6px; border-radius: 50%;
       background: currentColor; font-size: 0; animation: pulseDot 1.8s infinite;
     }
     .wip-badge::before { display: inline-block; animation: spin 3s linear infinite; }
 
-    /* tilt + glare */
+ 
     .proj-card, .contact-card { position: relative; overflow: hidden; }
     .exp-card::after, .tilt::after {
       content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -678,7 +676,7 @@
     .proj-link { display: inline-block; transition: transform 0.25s var(--ease-out), border-color 0.2s; }
     .proj-link:hover { transform: translateX(4px); }
 
-    /* scroll reveal */
+ 
     .rv { opacity: 0; transform: translateY(30px) scale(0.98);
           transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
           transition-delay: var(--d, 0ms); }
@@ -690,7 +688,7 @@
       .hero-stats { margin-top: -0.6rem; }
     }
 
-    /* ---------- round 2 ---------- */
+   
     @keyframes fadeOut { to { opacity: 0; transform: scale(0.92); } }
     @keyframes leave   { to { opacity: 0; transform: translateY(-12px); } }
     @keyframes marquee { to { transform: translateX(-50%); } }
@@ -698,14 +696,13 @@
 
     section.leaving { animation: leave 0.18s ease-in forwards; }
 
-    /* heading word-by-word */
     .sh .w {
       display: inline-block; margin-right: 0.26em;
       animation: fadeUp 0.7s var(--ease-out) backwards;
       animation-delay: calc(var(--w, 0) * 90ms + 100ms);
     }
 
-    /* tech marquee */
+
     .marquee {
       margin-top: 2rem; overflow: hidden;
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
@@ -721,7 +718,7 @@
     }
     .marquee-track span::before { content: "✦"; color: var(--red); margin-right: 0.5rem; font-size: 0.6rem; }
 
-    /* project filter chips */
+   
     .filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: -1.4rem 0 2rem; }
     .chip {
       font-family: 'DM Sans', sans-serif; font-size: 0.76rem; font-weight: 600;
@@ -736,7 +733,7 @@
     .f-in  { animation: fadeUp 0.55s var(--ease-out) backwards; animation-delay: var(--fd, 0ms); }
     .f-out { animation: fadeOut 0.25s ease-in forwards; }
 
-    /* back-to-top with progress ring */
+    
     .to-top {
       position: fixed; right: 22px; bottom: 22px; width: 48px; height: 48px;
       border: none; border-radius: 50%; cursor: pointer; z-index: 250;
@@ -801,7 +798,7 @@
   </nav>
 </div>
 
-<!-- HERO -->
+
 <section id="hero" class="active">
   <div class="floaties" aria-hidden="true">
     <span style="--x:80%;--y:12%;--s:2.6rem;--dur:7s;--dl:0s">✦</span>
@@ -843,7 +840,7 @@
   <div class="marquee fu" style="--i:9" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
 </section>
 
-<!-- ABOUT -->
+
 <section id="about">
   <h2 class="sh">About <em>me</em></h2>
   <div class="about-grid">
@@ -884,7 +881,7 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+
 <section id="experience">
   <h2 class="sh">Work <em>Experience</em></h2>
   <div class="exp-list">
@@ -922,13 +919,13 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+
 <section id="projects">
   <h2 class="sh">Featured <em>Projects</em></h2>
   <div class="filter-bar" id="filterBar"></div>
   <div class="proj-grid">
 
-    <!-- ATELIER — the one flagship rectangular box -->
+   
     <div class="proj-card atelier">
       <div class="proj-eyebrow">✦ Fashion Tech Hub · Unified Launcher</div>
       <div class="proj-title">Atelier — Fashion Tech Hub</div>
@@ -944,7 +941,7 @@
       </div>
     </div>
 
-    <!-- LUMEN -->
+    
     <div class="proj-card">
       <div class="proj-eyebrow">Systems Programming · Currently Building</div>
       <div class="proj-title">Lumen — A 32-bit x86 Operating System</div>
@@ -962,7 +959,7 @@
       </div>
     </div>
 
-    <!-- WYA -->
+   
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack AI + AWS Cloud + Computer Vision · Fully Built</div>
       <div class="proj-title">WYA — What's Your Aesthetic?</div>
@@ -987,7 +984,7 @@
       </div>
     </div>
 
-    <!-- LUNA -->
+   
     <div class="proj-card">
       <div class="proj-eyebrow">Conversational AI · WYA Integration · Fully Built</div>
       <div class="proj-title">Luna — Conversational AI Stylist</div>
@@ -1009,7 +1006,7 @@
       </div>
     </div>
 
-    <!-- BITCOIN -->
+
     <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
@@ -1026,7 +1023,6 @@
       </div>
     </div>
 
-    <!-- TRYON -->
     <div class="proj-card">
       <div class="proj-eyebrow">Computer Vision · Fully Built</div>
       <div class="proj-title">TryOn — Build, Compare, and Perfect Outfits</div>
@@ -1048,7 +1044,7 @@
       </div>
     </div>
 
-    <!-- 3D MANNEQUIN GARMENT VIEWER -->
+    
     <div class="proj-card">
       <div class="proj-eyebrow">Computer Vision · Part of TryOn</div>
       <div class="proj-title">3D Mannequin Garment Viewer</div>
@@ -1066,7 +1062,7 @@
       </div>
     </div>
 
-    <!-- HYDRODRIVE-DQN -->
+ 
     <div class="proj-card" data-cat="ml">
       <div class="proj-eyebrow">Reinforcement Learning · Clean Energy</div>
       <div class="proj-title">HydroDrive-DQN — Adaptive FCEV–Hydrogen Co-Optimization</div>
@@ -1085,7 +1081,6 @@
       </div>
     </div>
 
-    <!-- FAIRFACEGUARD -->
     <div class="proj-card">
       <div class="proj-eyebrow">Causal ML · Fairness in Deepfake Detection</div>
       <div class="proj-title">FairFaceGuard — Deepfake Detection Under Skin-Tone and Lighting Variations</div>
@@ -1104,7 +1099,7 @@
       </div>
     </div>
 
-    <!-- VISUALGUARD-LVLM -->
+ 
     <div class="proj-card">
       <div class="proj-eyebrow">Multimodal AI · Hallucination Mitigation</div>
       <div class="proj-title">VisualGuard — Evidence-Guided Decoding for LVLMs</div>
@@ -1125,7 +1120,7 @@
       </div>
     </div>
 
-    <!-- APEXNET -->
+ 
     <div class="proj-card" data-cat="ml">
       <div class="proj-eyebrow">Deep Learning · Motorsport Analytics</div>
       <div class="proj-title">ApexNet — F1 Overtaking Prediction</div>
@@ -1142,7 +1137,7 @@
       </div>
     </div>
 
-    <!-- SPORTS PERFORMANCE ANALYTICS DASHBOARD -->
+
     <div class="proj-card">
       <div class="proj-eyebrow">Data Visualization · Sports Analytics</div>
       <div class="proj-title">Sports Performance Analytics Dashboard</div>
@@ -1160,7 +1155,7 @@
       </div>
     </div>
 
-    <!-- VELARIS -->
+
     <div class="proj-card">
       <div class="proj-eyebrow">Generative AI · Currently Building</div>
       <div class="proj-title">Velaris — From Inspiration to Jewellery Design</div>
@@ -1177,7 +1172,7 @@
       </div>
     </div>
 
-    <!-- FLOWWRITE -->
+ 
     <div class="proj-card">
       <div class="proj-eyebrow">NLP Pipeline · Text Style Transfer</div>
       <div class="proj-title">FlowWrite — NLP Text Style Transfer Pipeline</div>
@@ -1196,7 +1191,6 @@
       </div>
     </div>
 
-    <!-- PAPERPILOT -->
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack AI · Canvas Rendering · Currently Building</div>
       <div class="proj-title">PaperPilot — Questions In, Handwritten Pages Out</div>
@@ -1216,7 +1210,7 @@
       </div>
     </div>
 
-    <!-- BOOKNEST -->
+  
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack</div>
       <div class="proj-title">BookNest+</div>
@@ -1250,7 +1244,7 @@
   </div>
 </section>
 
-<!-- RESEARCH & IP -->
+
 <section id="research">
   <h2 class="sh">Research <em>&amp; IP</em></h2>
 
@@ -1353,7 +1347,7 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
+
 <section id="education">
   <h2 class="sh">Education & <em>Certifications</em></h2>
   <div class="edu-grid">
@@ -1380,7 +1374,7 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+
 <section id="contact">
   <h2 class="sh">Get in <em>Touch</em></h2>
   <div class="cta-banner">
@@ -1433,7 +1427,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  /* ---------- scroll reveal ---------- */
+
   const revealSel = '.about-text p,.skill-block,.exp-card,.virtual-note,.section-divider,.proj-card,.edu-card,.cert-box,.learning-box,.patent-box,.patent-item,.cta-banner,.contact-card';
   let io = null;
   function setupReveal(sec) {
@@ -1462,7 +1456,7 @@
     els.forEach(el => io.observe(el));
   }
 
-  /* ---------- nav pill ---------- */
+  
   function movePill() {
     const a = document.querySelector('.nav-links button.active');
     const p = document.getElementById('navPill');
@@ -1472,12 +1466,12 @@
     p.style.opacity = 1;
   }
 
-  /* ---------- count-up stats ---------- */
+  
   function runCounts() {
     const boxes = document.querySelectorAll('#research .patent-box');
     const totals = {
       projects: document.querySelectorAll('#projects .proj-card').length,
-      // counted strictly by real status badge text — nothing in-progress or draft is counted
+      
       accepted: boxes[0] ? boxes[0].querySelectorAll('.patent-status.accepted').length : 0,
       submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.textContent.trim() === 'Submitted').length : 0,
       idf: boxes[1] ? [...boxes[1].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0
@@ -1521,8 +1515,7 @@
     if (id === 'hero') runCounts();
   }
 
-  // Auto-generate "Recent Learnings" from any project card that has a data-learning attribute.
-  // To update: just edit/add the data-learning attribute on the relevant .proj-card — no need to touch this section.
+
   function syncLearningsFromProjects() {
     const container = document.getElementById('dynamic-learnings');
     if (!container) return;
@@ -1547,8 +1540,7 @@
       container.appendChild(item);
     });
 
-    // Fixed learnings not tied to a project card in the grid above.
-    // Add/remove entries here directly.
+    
     const fixedLearnings = [
       { text: 'Using GATv2 with a MetaEnsemble stacker, heterophily-aware readout and NT-Xent contrastive loss to detect illicit Bitcoin transactions, beating published EvolveGCN baselines on AUC and F1.' },
       { text: 'Turning a customer\'s vague jewellery idea into a structured spec sheet (metal, stone, cut, setting, occasion) and a PDF brief a jeweller can quote from, cutting down design revision rounds.' },
@@ -1573,7 +1565,7 @@
     });
   }
 
-  /* ---------- typewriter ---------- */
+  
   (function () {
     const el = document.getElementById('typed');
     const words = ['ML models', 'full-stack apps', 'AI products', 'graph neural networks', 'fashion tech'];
@@ -1591,12 +1583,12 @@
     setTimeout(type, 1200);
   })();
 
-  /* ---------- stagger index for pills/tags ---------- */
+
   document.querySelectorAll('.tag-cloud, .pill-row').forEach(c => {
     [...c.children].forEach((ch, i) => ch.style.setProperty('--ti', i));
   });
 
-  /* ---------- scroll progress + nav shadow ---------- */
+
   const bar = document.getElementById('progress');
   const navWrap = document.querySelector('.nav-wrap');
   function onScroll() {
@@ -1612,7 +1604,7 @@
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', movePill);
 
-  /* ---------- desktop-only: cursor glow, tilt, magnetic buttons ---------- */
+  
   const glow = document.querySelector('.cursor-glow');
   if (fine && !reduce) {
     let gx = 0, gy = 0, tx = 0, ty = 0;
@@ -1660,10 +1652,10 @@
     glow.remove();
   }
 
-  /* ---------- round 2 features ---------- */
+  
   document.getElementById('toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // heading words
+  
   document.querySelectorAll('.sh').forEach(h => {
     let i = 0;
     [...h.childNodes].forEach(n => {
@@ -1681,18 +1673,15 @@
     });
   });
 
-  // marquee built from the Tech Stack tags (duplicated for a seamless loop)
   (function () {
     const track = document.getElementById('marqueeTrack');
     const names = [...document.querySelectorAll('#about .skill-block:first-child .tag')].map(t => t.textContent);
     [...names, ...names].forEach(n => { const s = document.createElement('span'); s.textContent = n; track.appendChild(s); });
   })();
 
-  // project filter
+  
   (function () {
     const cards = [...document.querySelectorAll('#projects .proj-card')];
-    // Each project lives in exactly ONE tab (plus "All"). Matched by title prefix.
-    // Edit this map to move a project. Tabs: ml, cv, fs, sys, research
     const catMap = {
       'Atelier': 'fs', 'WYA': 'fs', 'Luna': 'fs', 'Sports': 'fs', 'BookNest': 'fs', 'Velaris': 'fs',
       'Bitcoin': 'ml', 'ApexNet': 'ml', 'Smart Resale': 'ml',
@@ -1738,7 +1727,6 @@
     });
   })();
 
-  // hero parallax
   if (fine && !reduce) {
     const fl = document.querySelector('.floaties');
     document.getElementById('hero').addEventListener('mousemove', e => {
