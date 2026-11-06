@@ -1164,7 +1164,7 @@
         <span class="proj-tag">PDF Export</span>
       </div>
       <div class="proj-footer">
-        <span class="wip-badge">Paper in Progress</span>
+        <span class="idf-badge">Paper Submitted · ICDSI</span>
         <a class="proj-link" href="https://github.com/ria0304/Velaris-From-Inspiration-to-Jewellery-Design" target="_blank">GitHub →</a>
       </div>
     </div>
@@ -1251,7 +1251,7 @@
       <div>
         <div class="patent-title">WYA — From Pixels to Wardrobe: A Deep Learning and Computer Vision Pipeline for Automated Garment Analysis</div>
         <div class="patent-meta">
-          Full Paper &nbsp;·&nbsp; <span>EDGEI 2026</span>, SIUC, Malaysia &nbsp;·&nbsp; Springer Lecture Notes in Networks and Systems (LNNS), Scopus-indexed
+          Full Paper &nbsp;·&nbsp; <span>EDGEI 2026</span>, SIUC, Malaysia &nbsp;·&nbsp; Springer Lecture Notes in Networks and Systems (LNNS), Scopus-indexed &nbsp;·&nbsp; Paper ID <span>379</span> &nbsp;·&nbsp; 11–12 Dec 2026 &nbsp;·&nbsp; <a href="https://edgei.org/" target="_blank" rel="noopener">Conference website →</a>
         </div>
         <div class="patent-status accepted">Accepted · Camera-Ready Submitted</div>
       </div>
@@ -1260,7 +1260,7 @@
       <div>
         <div class="patent-title">FairFaceGuard: An Observational Fairness Audit and a Negative Result on Counterfactual Skin-Tone Control in Deepfake Detection</div>
         <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>IMPACT 2026</span>, BIT Mesra (Patna Campus) &nbsp;·&nbsp; Springer Information and Communication Technology (ICT) series
+          Conference Paper &nbsp;·&nbsp; <span>IMPACT 2026</span>, BIT Mesra (Patna Campus) &nbsp;·&nbsp; Springer Information and Communication Technology (ICT) series &nbsp;·&nbsp; Paper ID <span>427</span> &nbsp;·&nbsp; 4–5 Dec 2026 &nbsp;·&nbsp; <a href="https://impact.bitmsra.ac.in/" target="_blank" rel="noopener">Conference website →</a>
         </div>
         <div class="patent-status accepted">Accepted · Camera-Ready Submitted</div>
       </div>
@@ -1269,7 +1269,7 @@
       <div>
         <div class="patent-title">TryOn: Decoupling Fast Outfit Composition from Photorealistic Garment Rendering</div>
         <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>ANTIC 2026</span>
+          Conference Paper &nbsp;·&nbsp; <span>ANTIC 2026</span> &nbsp;·&nbsp; Paper ID <span>236</span> &nbsp;·&nbsp; 21–23 Dec 2026 &nbsp;·&nbsp; <a href="https://antic.co.in/" target="_blank" rel="noopener">Conference website →</a>
         </div>
         <div class="patent-status">Submitted</div>
       </div>
@@ -1278,7 +1278,7 @@
       <div>
         <div class="patent-title">VisualGuard — Evidence-Guided Decoding for Reducing Object Hallucination in Large Vision-Language Models</div>
         <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span>
+          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span> &nbsp;·&nbsp; 21–23 Jan 2027 &nbsp;·&nbsp; <a href="https://icipcn.com/2027/" target="_blank" rel="noopener">Conference website →</a>
         </div>
         <div class="patent-status">Submitted</div>
       </div>
@@ -1287,7 +1287,7 @@
       <div>
         <div class="patent-title">HydroDrive-DQN — Adaptive FCEV–Hydrogen Co-Optimization</div>
         <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>MARC 2027</span>
+          Conference Paper &nbsp;·&nbsp; <span>MARC 2027</span> &nbsp;·&nbsp; Paper ID <span>280</span> &nbsp;·&nbsp; 21–22 Jan 2027 &nbsp;·&nbsp; <a href="https://marc2027.srhu.edu.in/" target="_blank" rel="noopener">Conference website →</a>
         </div>
         <div class="patent-status">Submitted</div>
       </div>
@@ -1296,9 +1296,9 @@
       <div>
         <div class="patent-title">Velaris — From Inspiration to Jewellery Design</div>
         <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>ESIC 2027</span>
+          Conference Paper &nbsp;·&nbsp; <span>ICDSI</span> &nbsp;·&nbsp; Paper ID <span>391</span> &nbsp;·&nbsp; 4–5 Feb 2027 &nbsp;·&nbsp; <a href="https://www.icdsi.co.in/" target="_blank" rel="noopener">Conference website →</a>
         </div>
-        <div class="patent-status progress">In Progress · Deadline 15 Jan 2027</div>
+        <div class="patent-status">Submitted</div>
       </div>
     </div>
     <div class="patent-item">
@@ -1492,7 +1492,7 @@
       projects: document.querySelectorAll('#projects .proj-card').length,
       
       accepted: boxes[0] ? boxes[0].querySelectorAll('.patent-status.accepted').length : 0,
-      submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.textContent.trim() === 'Submitted').length : 0,
+      submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.classList.contains('accepted') || s.textContent.trim() === 'Submitted').length : 0,
       idf: boxes[1] ? [...boxes[1].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0
     };
     document.querySelectorAll('[data-count]').forEach(el => {
