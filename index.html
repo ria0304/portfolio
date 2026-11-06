@@ -1247,7 +1247,7 @@
   <h2 class="sh">Research <em>&amp; IP</em></h2>
 
   <div class="patent-box">
-    <h3>Research Papers</h3>
+    <h3>Conference Papers</h3>
     <div class="patent-item">
       <div>
         <div class="patent-title">WYA — From Pixels to Wardrobe: A Deep Learning and Computer Vision Pipeline for Automated Garment Analysis</div>
@@ -1302,6 +1302,10 @@
         <div class="patent-status">Submitted</div>
       </div>
     </div>
+  </div>
+
+  <div class="patent-box">
+    <h3>Journal Papers</h3>
     <div class="patent-item">
       <div>
         <div class="patent-title">Bitcoin Fraud Detection — Graph Neural Networks on the Elliptic Dataset</div>
@@ -1494,8 +1498,8 @@
       
       accepted: boxes[0] ? boxes[0].querySelectorAll('.patent-status.accepted').length : 0,
       submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.classList.contains('accepted') || s.textContent.trim() === 'Submitted').length : 0,
-      idf: boxes[1] ? [...boxes[1].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0,
-      idfSubmitted: boxes[1] ? boxes[1].querySelectorAll('.patent-item').length : 0
+      idf: boxes[2] ? [...boxes[2].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0,
+      idfSubmitted: boxes[2] ? boxes[2].querySelectorAll('.patent-item').length : 0
     };
     document.querySelectorAll('[data-count]').forEach(el => {
       const to = totals[el.dataset.count] || 0;
