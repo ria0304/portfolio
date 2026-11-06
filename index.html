@@ -831,6 +831,7 @@
     <div class="stat"><div class="stat-n" data-count="accepted">0</div><div class="stat-l">Papers Accepted</div></div>
     <div class="stat"><div class="stat-n" data-count="submitted">0</div><div class="stat-l">Papers Submitted</div></div>
     <div class="stat"><div class="stat-n" data-count="idf">0</div><div class="stat-l">IDF Accepted</div></div>
+    <div class="stat"><div class="stat-n" data-count="idfSubmitted">0</div><div class="stat-l">IDF Submitted</div></div>
   </div>
   <div class="hero-meta fu" style="--i:8">
     <span>📍 New Delhi, India</span>
@@ -1493,7 +1494,8 @@
       
       accepted: boxes[0] ? boxes[0].querySelectorAll('.patent-status.accepted').length : 0,
       submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.classList.contains('accepted') || s.textContent.trim() === 'Submitted').length : 0,
-      idf: boxes[1] ? [...boxes[1].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0
+      idf: boxes[1] ? [...boxes[1].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0,
+      idfSubmitted: boxes[1] ? boxes[1].querySelectorAll('.patent-item').length : 0
     };
     document.querySelectorAll('[data-count]').forEach(el => {
       const to = totals[el.dataset.count] || 0;
