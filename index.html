@@ -1081,6 +1081,24 @@
     </div>
 
     <div class="proj-card">
+      <div class="proj-eyebrow">Operations Research · Water-Resource Optimization</div>
+      <div class="proj-title">AquaRoute — Reliable Community Water Distribution</div>
+      <div class="proj-desc">Models reservoirs, communities and pipelines as a single-commodity network-flow LP and decides how much water each route carries, with minimum-service guarantees for priority communities and transshipment through neighbouring communities. A two-stage lexicographic solve maximises service first, then applies the strategy objective, so five allocation strategies differ only in how they spread unavoidable shortages. A linearised proportional-fairness metric keeps the model an LP, and a solver-free analytical fallback takes over when no solver is installed or the LP is infeasible. An evaluation suite benchmarks four baselines against demand spikes, supply cuts and pipeline failures with seeded, reproducible CSV/JSON exports, significance tests and a Streamlit dashboard. 47 tests, GitHub Actions CI on Python 3.10–3.12.</div>
+      <div class="proj-tags">
+        <span class="proj-tag ml">Network-Flow LP</span>
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">Pyomo · HiGHS</span>
+        <span class="proj-tag">NetworkX</span>
+        <span class="proj-tag">Streamlit · Plotly</span>
+        <span class="proj-tag">GitHub Actions</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Research Prototype</span>
+        <a class="proj-link" href="https://github.com/ria0304/AquaRoute" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
       <div class="proj-eyebrow">Causal ML · Fairness in Deepfake Detection</div>
       <div class="proj-title">FairFaceGuard — Deepfake Detection Under Skin-Tone and Lighting Variations</div>
       <div class="proj-desc">Research pipeline that asks whether a deepfake detector's accuracy gap across skin-tone groups is really about skin tone, or about illumination cues that merely correlate with it. Faces get illuminant-corrected ITA/Fitzpatrick labels, then matched counterfactuals (skin-only, light-only, both) with an automated manipulation check. A frozen EfficientNet-B4 baseline is interrogated three ways — adversarial GRL sweeps, linear probing, and a counterfactual causal test — with bootstrap CIs and a paired permutation test. Currently a single-seed pilot on a FaceForensics++ Deepfakes-only subset; multi-seed, cross-dataset (Celeb-DF) and backbone-ablation runs are written but not yet run.</div>
@@ -1571,6 +1589,7 @@
       { text: 'Turning a customer\'s vague jewellery idea into a structured spec sheet (metal, stone, cut, setting, occasion) and a PDF brief a jeweller can quote from, cutting down design revision rounds.' },
       { text: 'Writing a Deep Q-Network from scratch in NumPy to split power between fuel cell and battery, then stress-testing it with a 10,000-scenario Monte Carlo run.' },
       { text: 'Comparing five architectures (CNN, GAT, LSTM, CNN+LSTM, CNN+GAT) for F1 overtaking prediction, using a leakage-checked race-level split so the results hold up on unseen races.' },
+      { text: 'Formulating water allocation as a network-flow LP with a two-stage lexicographic solve, so fairness-aware strategies are compared against baselines without trading away delivered water.' },
       { text: 'Validating a Poisson match model walk-forward on 14,460 real matches, with a leakage canary on lagged features and negative results reported honestly.' }
     ];
     fixedLearnings.forEach(entry => {
@@ -1713,7 +1732,7 @@
       'FlowWrite': 'nlp', 'PaperPilot': 'nlp',
       'TryOn': 'cv', '3D Mannequin': 'cv',
       'Lumen': 'sys',
-      'FairFaceGuard': 'research', 'VisualGuard': 'research', 'HydroDrive': 'research'
+      'FairFaceGuard': 'research', 'VisualGuard': 'research', 'HydroDrive': 'research', 'AquaRoute': 'research'
     };
     cards.forEach(c => {
       const t = c.querySelector('.proj-title').textContent.trim();
