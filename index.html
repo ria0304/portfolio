@@ -1291,25 +1291,7 @@
         <div class="patent-meta">
           Conference Paper &nbsp;·&nbsp; <span>ANTIC 2026</span> &nbsp;·&nbsp; Paper ID <span>236</span> &nbsp;·&nbsp; 21–23 Dec 2026 &nbsp;·&nbsp; <a href="https://antic.co.in/" target="_blank" rel="noopener">Conference website →</a>
         </div>
-        <div class="patent-status">Submitted</div>
-      </div>
-    </div>
-    <div class="patent-item">
-      <div>
-        <div class="patent-title">VisualGuard — Evidence-Guided Decoding for Reducing Object Hallucination in Large Vision-Language Models</div>
-        <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span> &nbsp;·&nbsp; 21–23 Jan 2027 &nbsp;·&nbsp; <a href="https://icipcn.com/2027/" target="_blank" rel="noopener">Conference website →</a>
-        </div>
-        <div class="patent-status">Submitted</div>
-      </div>
-    </div>
-    <div class="patent-item">
-      <div>
-        <div class="patent-title">HydroDrive-DQN — Adaptive FCEV–Hydrogen Co-Optimization</div>
-        <div class="patent-meta">
-          Conference Paper &nbsp;·&nbsp; <span>MARC 2027</span> &nbsp;·&nbsp; Paper ID <span>280</span> &nbsp;·&nbsp; 21–22 Jan 2027 &nbsp;·&nbsp; <a href="https://marc2027.srhu.edu.in/" target="_blank" rel="noopener">Conference website →</a>
-        </div>
-        <div class="patent-status">Submitted</div>
+        <div class="patent-status">Awaiting Decision · by 20 Nov 2026</div>
       </div>
     </div>
     <div class="patent-item">
@@ -1318,7 +1300,25 @@
         <div class="patent-meta">
           Conference Paper &nbsp;·&nbsp; <span>ICDSI 2027</span> &nbsp;·&nbsp; Paper ID <span>391</span> &nbsp;·&nbsp; 4–5 Feb 2027 &nbsp;·&nbsp; <a href="https://www.icdsi.co.in/" target="_blank" rel="noopener">Conference website →</a>
         </div>
-        <div class="patent-status">Submitted</div>
+        <div class="patent-status">Awaiting Decision · by 30 Nov 2026</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">VisualGuard — Evidence-Guided Decoding for Reducing Object Hallucination in Large Vision-Language Models</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>ICIPCN 2027</span> &nbsp;·&nbsp; 21–23 Jan 2027 &nbsp;·&nbsp; <a href="https://icipcn.com/2027/" target="_blank" rel="noopener">Conference website →</a>
+        </div>
+        <div class="patent-status">Awaiting Decision · by 1 Dec 2026</div>
+      </div>
+    </div>
+    <div class="patent-item">
+      <div>
+        <div class="patent-title">HydroDrive-DQN — Adaptive FCEV–Hydrogen Co-Optimization</div>
+        <div class="patent-meta">
+          Conference Paper &nbsp;·&nbsp; <span>MARC 2027</span> &nbsp;·&nbsp; Paper ID <span>280</span> &nbsp;·&nbsp; 21–22 Jan 2027 &nbsp;·&nbsp; <a href="https://marc2027.srhu.edu.in/" target="_blank" rel="noopener">Conference website →</a>
+        </div>
+        <div class="patent-status">Awaiting Decision · by 15 Dec 2026</div>
       </div>
     </div>
   </div>
@@ -1525,7 +1525,7 @@
       projects: document.querySelectorAll('#projects .proj-card').length,
       
       accepted: boxes[0] ? boxes[0].querySelectorAll('.patent-status.accepted').length : 0,
-      submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.classList.contains('accepted') || s.textContent.trim() === 'Submitted').length : 0,
+      submitted: boxes[0] ? [...boxes[0].querySelectorAll('.patent-status')].filter(s => s.classList.contains('accepted') || /^(Submitted|Awaiting Decision)/.test(s.textContent.trim())).length : 0,
       idf: boxes[2] ? [...boxes[2].querySelectorAll('.patent-meta')].filter(m => m.textContent.includes('IDF Accepted')).length : 0,
       idfSubmitted: boxes[2] ? boxes[2].querySelectorAll('.patent-item').length : 0
     };
