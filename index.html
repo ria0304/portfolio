@@ -1007,6 +1007,27 @@
 
 
     <div class="proj-card">
+      <div class="proj-eyebrow">Game Development · 3D Virtual World · Early Development</div>
+      <div class="proj-title">ORVYNE — An AI-Powered Personalised 3D Virtual World</div>
+      <div class="proj-desc">A platform that brings my independent AI products — BATISSE (floor plan to 3D home), WYA, TryOn, Velaris, and Luna — into one explorable 3D environment centred on a personalised home, instead of five separate web apps. A FastAPI integration gateway with per-project service adapters connects them while each keeps its own backend and database, with 23 integration tests passing. The React + Three.js frontend currently has a GLTF model viewer, scene rendering, and player and camera state. Still in early development: movement and physics, collision, walk-through rooms, a 3D Luna companion, and inventory are not built yet.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">React</span>
+        <span class="proj-tag">TypeScript</span>
+        <span class="proj-tag">Three.js</span>
+        <span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">SQLite</span>
+        <span class="proj-tag ai">AI Integration</span>
+        <span class="proj-tag">REST APIs</span>
+        <span class="proj-tag">GLTF / GLB</span>
+      </div>
+      <div class="proj-footer">
+        <span class="wip-badge">Early Development</span>
+        <a class="proj-link" href="https://github.com/ria0304/ORVYNE" target="_blank">GitHub →</a>
+      </div>
+    </div>
+
+  
+    <div class="proj-card">
       <div class="proj-eyebrow">Machine Learning · FinTech</div>
       <div class="proj-title">Bitcoin Fraud Detection</div>
       <div class="proj-desc">Advanced fraud detection using Graph Neural Networks (GATv2) on the Elliptic Bitcoin dataset. Features a MetaEnsemble stacker, heterophily-aware readout, NT-Xent contrastive loss, and exceeds published EvolveGCN baselines on AUC and F1.</div>
@@ -1226,7 +1247,6 @@
       </div>
     </div>
 
-  
     <div class="proj-card">
       <div class="proj-eyebrow">Full-Stack</div>
       <div class="proj-title">BookNest+</div>
@@ -1719,6 +1739,7 @@
       'FlowWrite': 'nlp', 'PaperPilot': 'nlp',
       'TryOn': 'cv', '3D Mannequin': 'cv',
       'Lumen': 'sys',
+      'ORVYNE': 'game',
       'FairFaceGuard': 'research', 'VisualGuard': 'research', 'HydroDrive': 'research'
     };
     cards.forEach(c => {
@@ -1727,7 +1748,7 @@
       c.dataset.cat = key ? catMap[key] : '';
     });
     const bar = document.getElementById('filterBar');
-    [['all', 'All'], ['ml', 'AI & ML'], ['nlp', 'NLP'], ['cv', 'Computer Vision'], ['fs', 'Full-Stack'], ['sys', 'Systems'], ['research', 'Research']].forEach(([k, label], i) => {
+    [['all', 'All'], ['ml', 'AI & ML'], ['nlp', 'NLP'], ['cv', 'Computer Vision'], ['fs', 'Full-Stack'], ['sys', 'Systems'], ['game', 'Game Dev'], ['research', 'Research']].forEach(([k, label], i) => {
       const n = k === 'all' ? cards.length : cards.filter(c => c.dataset.cat.split(' ').includes(k)).length;
       const b = document.createElement('button');
       b.className = 'chip' + (i ? '' : ' active');
